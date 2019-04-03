@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvFriends"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/news_friends"
+        android:textSize="@dimen/tamano_txt_principal_friends"
+        android:layout_marginBottom="@dimen/margen_texto_principal"
+        android:textColor="@color/colorFondoIcono"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/etSearchFriends"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Buscar y Seguir a nuevo amigo" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/etSearchFriends"
+            android:text="Buscar"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorFondoIcono"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Amigos Sugeridos"
+        android:layout_marginTop="30dp"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimary"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSuggested"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+
+</LinearLayout>

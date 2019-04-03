@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="30dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/people2" >
+
+    <TextView
+        android:layout_width="351dp"
+        android:layout_height="100dp"
+        android:text="@string/university_social_network"
+        android:textAlignment="center"
+        android:textColor="@color/letra"
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Fondo"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvEmail"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEmail"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tvApellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etEmail"
+            android:text="@string/tvApellidos"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvApellidos"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etApellidos"
+            android:text="@string/tvNombre"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNombre"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tvTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etNombre"
+            android:text="@string/tvTelefono"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTelefono"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tvContraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etTelefono"
+            android:text="@string/tvPassword"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvContraseña"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tvContraseña2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etContraseña"
+            android:text="@string/tvPassword2"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <EditText
+            android:id="@+id/etContraseña2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvContraseña2"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tvImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etContraseña2"
+            android:text="@string/tvImagen"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <Button
+            android:id="@+id/btnImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@id/tvImagen"
+            android:layout_marginTop="5dp"
+            android:text="Imagen"
+            android:textSize="@dimen/registro" />
+
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnImagen"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/btnRegistro"
+            android:textColor="@color/letra"
+            android:textSize="@dimen/registro" />
+
+        <TextView
+            android:id="@+id/tvVolver"
+            android:layout_width="191dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/tvImagen"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/btnImagen"
+            android:text="@string/tvVolver"
+            android:textColor="@color/Boton"
+            android:textSize="@dimen/registro" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

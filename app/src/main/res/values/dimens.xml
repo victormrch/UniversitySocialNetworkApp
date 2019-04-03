@@ -1,0 +1,52 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Dimensiones y margenes Pantalla Principal -->
+    <dimen name="margen_superior_nombre">10dp</dimen>
+    <dimen name="tamano_nombre">40sp</dimen>
+    <dimen name="separacion_nombre">15dp</dimen>
+    <dimen name="tamano_mail">18sp</dimen>
+    <dimen name="margen_superior_iconos">20dp</dimen>
+    <dimen name="margen_icono">10dp</dimen>
+    <dimen name="margen_last_post">20dp</dimen>
+    <dimen name="tamano_last_post">20sp</dimen>
+    <dimen name="margen_last_comment">20dp</dimen>
+    <dimen name="tamano_last_comment">20sp</dimen>
+    <dimen name="recycler_margin_Left">20dp</dimen>
+    <dimen name="recycler_margin_Right">20dp</dimen>
+    <dimen name="margen_boton">10dp</dimen>
+    <dimen name="relleno_boton">20dp</dimen>
+    <dimen name="texto_recycler">18sp</dimen>
+
+    <!-- Dimensiones y margenes Fragment Nuevo Publicación -->
+    <dimen name="margen_general">20dp</dimen>
+    <dimen name="tamano_texto_principal">30sp</dimen>
+    <dimen name="margen_superior">10dp</dimen>
+    <dimen name="tamano_texto_boton">20sp</dimen>
+
+    <!-- Dimensiones y margenes Pantalla Amigos -->
+    <dimen name="margen_general_friends">20dp</dimen>
+    <dimen name="margen_texto_principal">10dp</dimen>
+    <dimen name="tamano_txt_principal_friends">30sp</dimen>
+
+    <!-- Dimensiones y margenes Fragment Sugeridos -->
+    <dimen name="tamano_txt_principal_suggested">20dp</dimen>
+
+    <!-- Dimensiones y margenes Pantalla Grupos -->
+    <dimen name="margen_general_groups">20dp</dimen>
+    <dimen name="margen_texto_principal_groups">10dp</dimen>
+    <dimen name="tamano_txt_principal_groups">30sp</dimen>
+
+    <!-- Dimensiones y margenes Pantalla Login-Registro-->
+    <dimen name="login">25dp</dimen>
+    <dimen name="registro">15dp</dimen>
+    <dimen name="login2">20dp</dimen>
+
+
+
+</resources>

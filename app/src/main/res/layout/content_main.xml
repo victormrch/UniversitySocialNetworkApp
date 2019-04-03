@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondoIcono"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margen_superior_nombre">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jesús"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/tamano_nombre" />
+
+        <TextView
+            android:id="@+id/tvSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvName"
+            android:paddingLeft="@dimen/separacion_nombre"
+            android:text="España"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/tamano_nombre" />
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+            android:inputType="textEmailAddress"
+            android:text="jespana@uma.es"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/tamano_mail" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margen_superior_iconos">
+
+        <ImageButton
+            android:id="@+id/imLinkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_icono"
+            android:background="@color/colorFondoIcono"
+            android:src="@drawable/linkedin" />
+
+        <ImageButton
+            android:id="@+id/imFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_icono"
+            android:background="@color/colorFondoIcono"
+            android:src="@drawable/facebook" />
+
+        <ImageButton
+            android:id="@+id/imInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_icono"
+            android:background="@color/colorFondoIcono"
+            android:src="@drawable/instagram" />
+
+        <ImageButton
+            android:id="@+id/imTwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_icono"
+            android:background="@color/colorFondoIcono"
+            android:src="@drawable/twitter" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_last_post"
+        android:text="Mis últimas Publicaciones"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/tamano_last_post" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvUltimosPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/recycler_margin_Left"
+        android:layout_marginRight="@dimen/recycler_margin_Right">
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_last_comment"
+        android:text="Mis últimos Comentarios en Grupos"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/tamano_last_comment" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvUltimosComentarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/recycler_margin_Left"
+        android:layout_marginRight="@dimen/recycler_margin_Right">
+    </android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_boton"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/relleno_boton"
+            android:text="Nuevo Comentario"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

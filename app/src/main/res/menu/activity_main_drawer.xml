@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile"
+        android:title="Mi Perfil" />
+    <item
+        android:id="@+id/nav_friends"
+        android:icon="@drawable/friends"
+        android:title="Amigos" />
+    <item
+        android:id="@+id/nav_groups"
+        android:icon="@drawable/groups"
+        android:title="Grupos" />
+    </group>
+
+
+    <item android:title="Añadir nuev@...">
+        <menu>
+            <item
+                android:id="@+id/nav_post"
+                android:icon="@drawable/new_post"
+                android:title="Nueva Publicación" />
+            <item
+                android:id="@+id/nav_new_friend"
+                android:icon="@drawable/new_friend"
+                android:title="Nuevo Amigo" />
+
+            <item
+                android:id="@+id/nav_new_group"
+                android:icon="@drawable/new_group"
+                android:title="Nuevo Grupo" />
+
+
+        </menu>
+    </item>
+
+</menu>
+

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">UniversitySocialNetwork</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- String para el fragment Nueva Publicación -->
+    <string name="new_publication">NUEVA PUBLICACIÓN</string>
+    <string name="texto_about">¿Sobre qué quieres hablar?</string>
+    <string name="boton_publicar">Publicar</string>
+
+    <!-- String para la Pantalla Amigos -->
+    <string name="my_friends">MIS AMIGOS</string>
+    <string name="news_friends">AÑADIR NUEVO AMIGO</string>
+
+    <!-- String para la Pantalla Grupos -->
+    <string name="my_groups">MIS GRUPOS</string>
+    <string name="btn_news_groups">AÑADIR NUEVO GRUPO</string>
+    <string name="groups_suggested">Grupos Sugeridos</string>
+    <string name="create_group">CREAR GRUPO</string>
+    <string name="btn_upload_image">SUBIR IMAGEN</string>
+
+    <!-- String para la Pantalla Login-Registro -->
+    <string name="tvUser">USUARIO:</string>
+    <string name="tvPassword">CONTRASEÑA:</string>
+    <string name="btnSession">ENTRAR</string>
+    <string name="btnRegistro">REGISTRATE</string>
+    <string name="university_social_network">University Social Network</string>
+    <string name="registrate_ahora">Registrate Ahora</string>
+    <string name="no_tienes_cuenta_todav_a">¿No tienes cuenta?</string>
+    <string name="tvDescription">Una descripcion de ejemplo de la pagina(cambiar en clase)</string>
+    <string name="tvPassword2">REPITE CONTRASEÑA</string>
+    <string name="tvNombre">NOMBRE</string>
+    <string name="tvApellidos">APELLIDOS</string>
+    <string name="tvEmail">EMAIL</string>
+    <string name="tvTelefono">TELEFONO</string>
+    <string name="tvVolver">¿Tienes cuenta? Identifícate</string>
+    <string name="tvImagen">Selecciona una foto de perfil:</string>
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background=""
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imgFriend"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/mujer" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgFriend"
+        android:gravity="center"
+        android:text="Silvana"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvApellido"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgFriend"
+        android:layout_toRightOf="@id/tvNombre"
+        android:text="Da Silva"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvMail"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNombre"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="5dp"
+        android:text="silvana89@uma.es"
+        android:textColor="@color/colorPrimaryDark" />
+
+
+    <TextView
+
+        android:id="@+id/tvLastPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgFriend"
+        android:text="Su Último Comentario"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvFriendPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLastPost"
+        android:layout_toRightOf="@id/imgFriend"
+        android:text="Chicos nos vemos esta tarde a las 16.00 en la clase de Yoga" />
+
+
+</RelativeLayout>

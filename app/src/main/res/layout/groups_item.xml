@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background=""
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imgGroups"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/cityrunningclub" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgGroups"
+        android:gravity="center"
+        android:text="City Running Club"
+        android:textColor="@color/colorFondoIcono"
+        android:background="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:id="@+id/tvLastPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/imgGroups"
+        android:text="Último Comentario del Grupo"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvFriendPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/tvLastPost"
+        android:layout_toRightOf="@id/imgGroups"
+        android:text="Chicos nos vemos esta tarde a las 23.00 para salir a hacer unos cuantos km. Que no se os olvide la linterna" />
+
+
+</RelativeLayout>
