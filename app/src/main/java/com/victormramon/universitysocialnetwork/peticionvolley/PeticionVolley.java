@@ -1,7 +1,6 @@
 package com.victormramon.universitysocialnetwork.peticionvolley;
 
 import android.app.Activity;
-import android.content.Context;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -10,12 +9,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
-import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import org.json.JSONObject;
 
@@ -48,6 +43,8 @@ public class PeticionVolley {
                             //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                             MainActivity activity = (MainActivity) context;
                             activity.cargarJson(response.toString());
+                            Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
+                                    .show();
                         }
                     }, new Response.ErrorListener() {
                         @Override

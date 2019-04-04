@@ -35,7 +35,7 @@
             android:textSize="@dimen/tamano_nombre" />
 
         <TextView
-            android:id="@+id/editText"
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"
@@ -110,7 +110,7 @@
         android:textSize="@dimen/tamano_last_comment" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvUltimosComentarios"
+        android:id="@+id/rvLastComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/recycler_margin_Left"
