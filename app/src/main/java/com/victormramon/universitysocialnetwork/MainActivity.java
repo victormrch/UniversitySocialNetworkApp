@@ -14,10 +14,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+            private TextView tvName;
+            private TextView tvSurname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +31,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,8 +41,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        PeticionVolley get = new PeticionVolley(this);
-        get.getUsuarioVolley();
+        Bundle args = getIntent().getExtras();
+        TextView tv = (TextView) findViewById(R.id.tvName);
+        Usuario usuario = (Usuario) args.getSerializable("usuario");
+        if(tv != null) {
+            tv.setText(usuario.getNombre() + " " + usuario.getApellidos());
+        }
+
 
     }
 

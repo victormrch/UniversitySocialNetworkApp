@@ -41,6 +41,7 @@
     <string name="tvImagen">Selecciona una foto de perfil:</string>
 
     <!-- Direcciones de api rest -->
-    <string name="ws_login">http://192.168.1.110:22175/RedSocial-war/api/redsocial/login</string>
+    <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
+    <string name="error_conexion">Error al conectar</string>
 
 </resources>

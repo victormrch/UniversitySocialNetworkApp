@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.victormramon.universitysocialnetwork.LoginActivity;
 import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
@@ -28,15 +29,15 @@ public class PeticionVolley {
     private String url;
     private JSONObject userLogin;
 
-    public PeticionVolley(Activity context) {
+    public PeticionVolley(Activity context, Usuario user) {
         this.context = context;
         this.url = context.getString(R.string.ws_login);
 
-        userLogin = this.crearJsonObjectUsuario("jespana@uma.es", "22222");
+        userLogin = this.crearJsonObjectUsuario(user.getEmail(),user.getPassword());
 
     }
 
-    public void getUsuarioVolley(/*Usuario userToLogin*/) {
+    public void getUsuarioVolley() {
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -46,8 +47,10 @@ public class PeticionVolley {
                         @Override
                         public void onResponse(JSONObject response) {
                             //4-04 -> pinta al main activity con el json del usuario que viene del servidor
-                            MainActivity activity = (MainActivity) context;
-                            activity.cargarJson(response.toString());
+                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                            Usuario user = fromJsonToUsuario(response.toString());
+                            LoginActivity acitivity = (LoginActivity) context;
+                            acitivity.cargarSiguienteActivity(user);
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -74,6 +77,13 @@ public class PeticionVolley {
         params.put("email", email);
         params.put("password", password);
         return new JSONObject(params);
+    }
+
+    private Usuario fromJsonToUsuario(String userJson){
+
+        Gson gson = new GsonBuilder().create();
+        Usuario userLogget = gson.fromJson(userJson, Usuario.class);
+        return userLogget;
     }
 
 }
