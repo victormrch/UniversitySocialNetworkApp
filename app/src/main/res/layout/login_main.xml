@@ -28,7 +28,7 @@
             android:id="@+id/tvDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/login"
             android:textAlignment="center"
             android:text="@string/tvDescription"
@@ -72,11 +72,11 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSession"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/etContraseña"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/btnSession"
             android:textColor="@color/letra"
             android:textSize="@dimen/login" />
@@ -93,7 +93,7 @@
             android:id="@+id/tvPregunta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnLogin"
+            android:layout_below="@id/btnSession"
             android:layout_marginTop="14dp"
             android:text="@string/no_tienes_cuenta_todav_a"
             android:textColor="@color/letra"
@@ -104,7 +104,7 @@
             android:id="@+id/btnRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnLogin"
+            android:layout_below="@id/btnSession"
             android:layout_marginLeft="27dp"
             android:layout_marginTop="12dp"
             android:layout_toRightOf="@id/tvPregunta"

@@ -1,6 +1,7 @@
 package com.victormramon.universitysocialnetwork.peticionvolley;
 
 import android.app.Activity;
+import android.content.Context;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -9,9 +10,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.victormramon.universitysocialnetwork.AddRelationships;
-import com.victormramon.universitysocialnetwork.Friends;
-import com.victormramon.universitysocialnetwork.Groups;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
@@ -40,32 +42,21 @@ public class PeticionVolley {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest jsonObjectRequest =
-            new JsonObjectRequest(Request.Method.POST, url, userLogin,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Groups activity = (Groups) context;
-                            activity.cargarJson(response.toString());
-                            Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
-                                    .show();
-                            /*
-                            //8-04 -> hace login y con el id de usuario pide las sugerencias
-                            AddRelationships activity = (AddRelationships) context;
-                            Usuario user = activity.getUserFromResponse(response.toString());
-                            if (activity instanceof AddRelationships) {
-                                activity.getSuggestion(user);
+                new JsonObjectRequest(Request.Method.POST, url, userLogin,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //4-04 -> pinta al main activity con el json del usuario que viene del servidor
+                                Usuario user = fromJsonToUsuario(response.toString());
+                                LoginActivity acitivity = (LoginActivity) context;
+                                acitivity.cargarSiguienteActivity(user);
                             }
-                            Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                        */
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                    Toast.LENGTH_LONG);
-                        }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                                Toast.LENGTH_LONG);
+                    }
 
 
                     }
@@ -85,6 +76,13 @@ public class PeticionVolley {
         params.put("email", email);
         params.put("password", password);
         return new JSONObject(params);
+    }
+
+    private Usuario fromJsonToUsuario(String userJson) {
+
+        Gson gson = new GsonBuilder().create();
+        Usuario userLogget = gson.fromJson(userJson, Usuario.class);
+        return userLogget;
     }
 
 }
