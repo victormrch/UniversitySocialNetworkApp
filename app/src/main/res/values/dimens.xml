@@ -44,7 +44,7 @@
 
     <!-- Dimensiones y margenes Pantalla Login-Registro-->
     <dimen name="login">25dp</dimen>
-    <dimen name="registro">15dp</dimen>
+    <dimen name="registro">10dp</dimen>
     <dimen name="login2">20dp</dimen>
 
 
