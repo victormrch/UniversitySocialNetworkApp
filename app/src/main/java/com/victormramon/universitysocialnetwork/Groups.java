@@ -3,7 +3,7 @@ package com.victormramon.universitysocialnetwork;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Groups extends AppCompatActivity {
+public class  Groups extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
