@@ -7,7 +7,6 @@
     android:background="@color/colorFondoIcono"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <RelativeLayout
@@ -35,7 +34,7 @@
             android:textSize="@dimen/tamano_nombre" />
 
         <TextView
-            android:id="@+id/editText"
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"

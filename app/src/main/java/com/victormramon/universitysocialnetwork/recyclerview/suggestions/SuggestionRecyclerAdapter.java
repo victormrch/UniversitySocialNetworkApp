@@ -9,11 +9,11 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import java.util.List;
 
-public class SuggestionRecyvlerAdapter extends RecyclerView.Adapter<ViewElemento> {
+public class SuggestionRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
     private List<Usuario> elementos;
     private int resourceId;
 
-    public SuggestionRecyvlerAdapter(int resourceId, List elementos) {
+    public SuggestionRecyclerAdapter(int resourceId, List elementos) {
         this.elementos = elementos;
         this.resourceId = resourceId;
     }

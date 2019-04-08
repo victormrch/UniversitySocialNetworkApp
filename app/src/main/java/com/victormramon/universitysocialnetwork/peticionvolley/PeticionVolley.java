@@ -9,8 +9,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.victormramon.universitysocialnetwork.Add;
+import com.victormramon.universitysocialnetwork.AddRelationships;
+import com.victormramon.universitysocialnetwork.Friends;
+import com.victormramon.universitysocialnetwork.Groups;
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import org.json.JSONObject;
@@ -41,14 +44,21 @@ public class PeticionVolley {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            //4-04 -> pinta al main activity con el json del usuario que viene del servidor
-                            Add activity = (Add) context;
+                            Groups activity = (Groups) context;
+                            activity.cargarJson(response.toString());
+                            Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
+                                    .show();
+                            /*
+                            //8-04 -> hace login y con el id de usuario pide las sugerencias
+                            AddRelationships activity = (AddRelationships) context;
                             Usuario user = activity.getUserFromResponse(response.toString());
-                            if (activity instanceof Add) {
+                            if (activity instanceof AddRelationships) {
                                 activity.getSuggestion(user);
                             }
                             Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
                                     .show();
+                        }
+                        */
                         }
                     }, new Response.ErrorListener() {
                         @Override

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
-import com.victormramon.universitysocialnetwork.recyclerview.suggestions.SuggestionRecyvlerAdapter;
+import com.victormramon.universitysocialnetwork.recyclerview.suggestions.SuggestionRecyclerAdapter;
 
 public class AddGroupFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class AddGroupFragment extends Fragment {
 
     private void prepare(View v) {
         getBundleFromArgument();
-        SuggestionRecyvlerAdapter rvAdapter = new SuggestionRecyvlerAdapter
+        SuggestionRecyclerAdapter rvAdapter = new SuggestionRecyclerAdapter
                 (R.layout.item_suggested, suggestion.getGroupsSuggested());
         RecyclerView recView = v.findViewById(R.id.rvSuggested);
         recView.setHasFixedSize(true);

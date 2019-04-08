@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
@@ -13,24 +14,46 @@ public class ViewElemento extends RecyclerView.ViewHolder {
 
     private TextView tvNombre;
     private TextView tvFriendPost;
+    private Object item;
 
-    public ViewElemento(@NonNull View itemView) {
+    public ViewElemento(@NonNull final View itemView) {
         super(itemView);
         this.tvNombre = itemView.findViewById(R.id.tvNombre);
         this.tvFriendPost = itemView.findViewById(R.id.tvFriendPost);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(item instanceof Usuario || item instanceof Grupos) {
+
+                    ShowListRecyclerAdapter.onItemClickListener(item);
+                }
+                else {
+                    Toast.makeText(itemView.getContext(), "algo no ha ido bien al cargar el detalle", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
     }
 
 
+
     public void setUpHolder(Object item) {
+
         if(item instanceof Usuario) {
+            //para manejarlo en el onItemClickListener como parametro
+            this.item = (Usuario) item;
             Usuario friend = (Usuario) item;
+            String completeName = friend.getNombre() + " " + friend.getApellidos();
+            tvNombre.setText(completeName);
             if (!friend.getPostList().isEmpty()) {
                 int lastPosition = (friend.getPostList().size()) - 1;
-                String completeName = friend.getNombre() + " " + friend.getApellidos();
-                tvNombre.setText(completeName);
+
                 tvFriendPost.setText(friend.getPostList().get(lastPosition).getContenido());
+            } else {
+                tvFriendPost.setText("No hay comentario");
             }
         } else {
+            this.item = (Grupos) item;
             Grupos grupo = (Grupos) item;
             if (grupo != null ) {
                 int lastPosition = (grupo.getComentarioGrupoList().size()) - 1;

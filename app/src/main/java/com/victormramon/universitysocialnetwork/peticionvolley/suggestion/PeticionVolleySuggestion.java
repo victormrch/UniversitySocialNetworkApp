@@ -9,7 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.victormramon.universitysocialnetwork.Add;
+import com.victormramon.universitysocialnetwork.AddRelationships;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -46,7 +46,7 @@ public class PeticionVolleySuggestion {
                             //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                             // activity = (Groups) context;
                             //activity.cargarJson(response.toString());
-                            Add activi = (Add) context;
+                            AddRelationships activi = (AddRelationships) context;
                             activi.getSuggestionFromResponse(response.toString());
                             Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
                                     .show();

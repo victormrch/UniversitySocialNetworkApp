@@ -47,6 +47,10 @@
     <dimen name="registro">15dp</dimen>
     <dimen name="login2">20dp</dimen>
 
+    <!-- Dimensiones para la Pantalla Detalle Grupos -->
+    <dimen name="ancho_imagen">130dp</dimen>
+    <dimen name="alto_imagen">130dp</dimen>
+
 
 
 </resources>

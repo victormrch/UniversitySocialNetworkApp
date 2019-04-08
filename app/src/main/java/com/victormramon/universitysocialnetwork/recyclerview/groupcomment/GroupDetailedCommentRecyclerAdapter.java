@@ -1,24 +1,26 @@
-package com.victormramon.universitysocialnetwork.recyclerview.friends;
+package com.victormramon.universitysocialnetwork.recyclerview.groupcomment;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.victormramon.universitysocialnetwork.modelos.Post;
+import com.victormramon.universitysocialnetwork.Friends;
+import com.victormramon.universitysocialnetwork.Groups;
+import com.victormramon.universitysocialnetwork.modelos.ComentarioGrupo;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class FriendRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
+public class GroupDetailedCommentRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
 
-    private List elementos;
+    private List<ComentarioGrupo> elementos;
     private int resourceId;
 
-    public FriendRecyclerAdapter(int resourceId, List elementos) {
+    public GroupDetailedCommentRecyclerAdapter(int resourceId, List<ComentarioGrupo> elementos) {
         this.elementos = elementos;
         this.resourceId = resourceId;
+
     }
 
     @Override
@@ -29,6 +31,7 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(ViewElemento viewElemento, int i) {
         viewElemento.setUpHolder(elementos.get(i));
@@ -38,6 +41,7 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
     public int getItemCount() {
         return elementos.size();
     }
+
 
 }
 

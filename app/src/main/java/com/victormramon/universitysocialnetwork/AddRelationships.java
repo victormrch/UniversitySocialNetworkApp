@@ -15,7 +15,7 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
-public class Add extends AppCompatActivity {
+public class AddRelationships extends AppCompatActivity {
 
     private Gson gson;
     private Usuario user;
