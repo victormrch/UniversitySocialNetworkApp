@@ -4,19 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvFriends"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/news_friends"
-        android:textSize="@dimen/tamano_txt_principal_friends"
-        android:layout_marginBottom="@dimen/margen_texto_principal"
-        android:textColor="@color/colorFondoIcono"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:background="@color/colorPrimaryDark"/>
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"

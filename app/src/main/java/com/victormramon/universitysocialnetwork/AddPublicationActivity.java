@@ -3,7 +3,7 @@ package com.victormramon.universitysocialnetwork;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.victormramon.universitysocialnetwork.Callback.CallbackPost;
+import com.victormramon.universitysocialnetwork.callback.CallbackPost;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyPublications;

@@ -1,4 +1,4 @@
-package com.victormramon.universitysocialnetwork.peticionvolley;
+package com.victormramon.universitysocialnetwork.peticionvolley.suggestion;
 
 import android.app.Activity;
 import android.widget.Toast;
@@ -10,10 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.victormramon.universitysocialnetwork.AddRelationships;
-import com.victormramon.universitysocialnetwork.Friends;
-import com.victormramon.universitysocialnetwork.Groups;
 import com.victormramon.universitysocialnetwork.R;
-import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import org.json.JSONObject;
@@ -21,17 +18,19 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PeticionVolley {
+public class PeticionVolleySuggestion {
 
     private Activity context;
     private String url;
     private JSONObject userLogin;
 
-    public PeticionVolley(Activity context) {
+    public PeticionVolleySuggestion(Activity context, Usuario user) {
         this.context = context;
-        this.url = context.getString(R.string.ws_login);
+        this.url = context.getString(R.string.ws_suggestion);
 
-        userLogin = this.crearJsonObjectUsuario("jespana@uma.es", "22222");
+        userLogin = this.crearJsonObjectUsuario(user.getId());
+
+        //userLogin = this.crearJsonObjectUsuario("jespana@uma.es", "22222");
 
     }
 
@@ -44,21 +43,13 @@ public class PeticionVolley {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Groups activity = (Groups) context;
-                            activity.cargarJson(response.toString());
-                            Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
+                            //4-04 -> pinta al main activity con el json del usuario que viene del servidor
+                            // activity = (Groups) context;
+                            //activity.cargarJson(response.toString());
+                            AddRelationships activi = (AddRelationships) context;
+                            activi.getSuggestionFromResponse(response.toString());
+                            Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
                                     .show();
-                            /*
-                            //8-04 -> hace login y con el id de usuario pide las sugerencias
-                            AddRelationships activity = (AddRelationships) context;
-                            Usuario user = activity.getUserFromResponse(response.toString());
-                            if (activity instanceof AddRelationships) {
-                                activity.getSuggestion(user);
-                            }
-                            Toast.makeText(context, "Usuario logeado", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                        */
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -76,14 +67,12 @@ public class PeticionVolley {
 
     /**
      * necesitamos un Map para crear el JSON object de manera correcta
-     * @param email email del usuario
-     * @param password password del usuario
+     * @param id id del usuario
      * @return JSONObject ya creado con los datos
      */
-    private JSONObject crearJsonObjectUsuario(String email, String password) {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("email", email);
-        params.put("password", password);
+    private JSONObject crearJsonObjectUsuario(Integer id) {
+        Map<String, Integer> params = new HashMap<String, Integer>();
+        params.put("id", id);
         return new JSONObject(params);
     }
 

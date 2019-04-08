@@ -12,12 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.victormramon.universitysocialnetwork.AddPublicationActivity;
-import com.victormramon.universitysocialnetwork.Callback.CallbackPost;
+import com.victormramon.universitysocialnetwork.callback.CallbackPost;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-
-import java.util.Date;
 
 public class AddPostFragment extends Fragment {
 

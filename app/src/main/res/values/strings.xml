@@ -43,8 +43,15 @@
     <!-- String para la Pantalla Añadir Comentarios -->
     <string name="tvNewPublication">AÑADIR NUEVA PUBLICACIÓN</string>
 
+    <!-- KEYS para acceder valores de los bundle -->
+    <string name="key_userLogged">userLogged</string>
+    <string name="key_suggestion">friendSuggestion</string>
+    <string name="key_friendSelected">friendSelected</string>
+    <string name="key_groupSelected">groupSelected</string>
+
 
     <!-- Direcciones de api rest -->
     <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
     <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
+    <string name="ws_suggestion">http://192.168.183.86:22175/RedSocial-war/api/redsocial/getsuggested</string>
 </resources>

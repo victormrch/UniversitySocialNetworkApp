@@ -1,4 +1,4 @@
-package com.victormramon.universitysocialnetwork.Callback;
+package com.victormramon.universitysocialnetwork.callback;
 
 public interface CallbackPost {
 
