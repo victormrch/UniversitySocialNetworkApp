@@ -46,7 +46,7 @@ public class PeticionVolleyPublications {
                             public void onResponse(JSONObject response) {
                                 //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                                 MainActivity activity = (MainActivity) context;
-                                activity.cargarJson(response.toString());
+                                //activity.cargarJson(response.toString());
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
                             }

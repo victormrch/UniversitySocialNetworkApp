@@ -69,8 +69,7 @@ public class AddRelationships extends AppCompatActivity {
      * hacer la petición volley oara traer al usuario con el que vamos a buscar las sugerencias
      */
     private void prepareActivity() {
-        PeticionVolley volleyLogin = new PeticionVolley(this);
-        volleyLogin.getUsuarioVolley();
+        this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
 
     }
 

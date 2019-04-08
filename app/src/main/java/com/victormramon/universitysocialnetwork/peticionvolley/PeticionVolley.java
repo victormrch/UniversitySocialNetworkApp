@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.victormramon.universitysocialnetwork.LoginActivity;
 import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
@@ -29,11 +30,11 @@ public class PeticionVolley {
     private String url;
     private JSONObject userLogin;
 
-    public PeticionVolley(Activity context) {
+    public PeticionVolley(Activity context, Usuario user) {
         this.context = context;
         this.url = context.getString(R.string.ws_login);
 
-        userLogin = this.crearJsonObjectUsuario("jespana@uma.es", "22222");
+        userLogin = this.crearJsonObjectUsuario(user.getEmail(), user.getPassword());
 
     }
 

@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Gson gson;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     public void cargarSiguienteActivity(Usuario usuario){
         //Recuperar como objeto
         args = new Bundle();
-        args.putSerializable("usuario",usuario);
+        args.putSerializable(getString(R.string.key_userLogged),usuario);
         //Iniciar activityMain pasando los argumentos
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         intent.putExtras(args);

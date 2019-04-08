@@ -15,7 +15,7 @@ import com.victormramon.universitysocialnetwork.recyclerview.friends.ShowListRec
 
 public class Friends extends AppCompatActivity implements Callback {
 
-    private Usuario userLogged;
+    private Usuario user;
     private Gson gson;
 
     @Override
@@ -36,8 +36,7 @@ public class Friends extends AppCompatActivity implements Callback {
     }
 
     public void getUser() {
-        PeticionVolley get = new PeticionVolley(this);
-        get.getUsuarioVolley();
+        this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
     }
 
     public void cargarJson(String json) {

@@ -17,6 +17,7 @@ import com.victormramon.universitysocialnetwork.recyclerview.friends.ShowListRec
 public class Groups extends AppCompatActivity implements Callback {
 
     private Gson gson;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +36,11 @@ public class Groups extends AppCompatActivity implements Callback {
     }
 
     public void getUser() {
-        PeticionVolley get = new PeticionVolley(this);
-        get.getUsuarioVolley();
+        this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
     }
 
     public void cargarJson(String json) {
-        Usuario user = gson.fromJson(json, Usuario.class);
+        
         chargeRV(user, R.layout.friends_item, R.id.rvGroups);
     }
 
