@@ -1,5 +1,6 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity
     private TextView tvName;
     private TextView tvSurname;
     private TextView tvEmail;
-    private Usuario userLogged = null;
+    private Usuario userLogged;
+    public static final String KEY_BUNDLE_USER = "usuario_logueado";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_groups) {
 
         } else if (id == R.id.nav_post) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(KEY_BUNDLE_USER, userLogged);
+
+            Intent intent = new Intent(getApplicationContext(),AddPublicationActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_new_friend) {
 
@@ -129,7 +137,7 @@ public class MainActivity extends AppCompatActivity
         // TextView tv = (TextView) this.findViewById(R.id.tvName);
         // tv.setText(json);
         Usuario user = gson.fromJson(json, Usuario.class);
-        userLogged = user;
+        this.userLogged = user;
 
         cargarTextView(userLogged);
         cargarComentario(userLogged);

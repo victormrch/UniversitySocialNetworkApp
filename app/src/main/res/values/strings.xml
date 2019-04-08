@@ -40,7 +40,11 @@
     <string name="tvVolver">¿Tienes cuenta? Identifícate</string>
     <string name="tvImagen">Selecciona una foto de perfil:</string>
 
+    <!-- String para la Pantalla Añadir Comentarios -->
+    <string name="tvNewPublication">AÑADIR NUEVA PUBLICACIÓN</string>
+
+
     <!-- Direcciones de api rest -->
     <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
-
+    <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
 </resources>
