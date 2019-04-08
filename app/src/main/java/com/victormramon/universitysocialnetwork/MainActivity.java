@@ -1,5 +1,6 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity
             private TextView tvName;
             private TextView tvSurname;
             private TextView tvEmail;
+            private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        Usuario usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
+        usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         cargarTextView(usuario);
         cargarComentario(usuario);
     }
@@ -103,14 +105,36 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_profile) {
             // Handle the camera action
         } else if (id == R.id.nav_friends) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(),Friends.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_groups) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(),Groups.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_post) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(),AddPublicationActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_new_friend) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
         } else if (id == R.id.nav_new_group) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
         }
 

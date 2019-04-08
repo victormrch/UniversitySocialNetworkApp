@@ -30,9 +30,12 @@ public class Groups extends AppCompatActivity implements Callback {
      * cargar rv con amigos
      */
     public void start() {
+        this.user = (Usuario) getIntent().getExtras()
+                .getSerializable(getString(R.string.key_userLogged));
 
-        gson = new GsonBuilder().create();
-        getUser();
+        //gson = new GsonBuilder().create();
+        //getUser();
+        chargeRV(this.user, R.layout.groups_item, R.id.rvGroups);
     }
 
     public void getUser() {
@@ -40,7 +43,7 @@ public class Groups extends AppCompatActivity implements Callback {
     }
 
     public void cargarJson(String json) {
-        
+
         chargeRV(user, R.layout.friends_item, R.id.rvGroups);
     }
 

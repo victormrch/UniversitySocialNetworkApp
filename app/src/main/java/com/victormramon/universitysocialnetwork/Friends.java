@@ -30,9 +30,11 @@ public class Friends extends AppCompatActivity implements Callback {
      * cargar rv con amigos
      */
     public void start() {
-
-        gson = new GsonBuilder().create();
-        getUser();
+        this.user = (Usuario) getIntent().getExtras()
+                .getSerializable(getString(R.string.key_userLogged));
+        //gson = new GsonBuilder().create();
+        //getUser();
+        chargeRV(this.user, R.layout.friends_item, R.id.rvFriends);
     }
 
     public void getUser() {
