@@ -46,6 +46,6 @@
 
     <!-- KEYS para acceder valores de los bundle -->
     <string name="key_userLogged">userLogged</string>
-    <string name="key_friendSuggestion">friendSuggestion</string>
+    <string name="key_suggestion">friendSuggestion</string>
 
 </resources>

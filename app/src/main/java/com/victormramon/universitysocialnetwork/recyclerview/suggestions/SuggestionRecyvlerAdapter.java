@@ -1,4 +1,4 @@
-package com.victormramon.universitysocialnetwork.recyclerview.friendsuggested;
+package com.victormramon.universitysocialnetwork.recyclerview.suggestions;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,15 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.recyclerview.friendsuggested.ViewElemento;
 
 import java.util.List;
 
-public class FriendSuggestedRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
+public class SuggestionRecyvlerAdapter extends RecyclerView.Adapter<ViewElemento> {
     private List<Usuario> elementos;
     private int resourceId;
 
-    public FriendSuggestedRecyclerAdapter(int resourceId, List elementos) {
+    public SuggestionRecyvlerAdapter(int resourceId, List elementos) {
         this.elementos = elementos;
         this.resourceId = resourceId;
     }

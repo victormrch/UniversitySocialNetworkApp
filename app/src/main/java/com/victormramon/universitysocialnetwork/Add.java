@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
+import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
@@ -42,11 +43,25 @@ public class Add extends AppCompatActivity {
                 t.commit();
             }
         });
+
+        btnGroups = findViewById(R.id.btnGrupos);
+        btnGroups.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddGroupFragment fragmentToCharge = new AddGroupFragment();
+                fragmentToCharge.setArguments(generateBundle(suggestion));
+                FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+                t.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                t.replace(R.id.flPlaceToFragment, fragmentToCharge);
+                t.addToBackStack(null);
+                t.commit();
+            }
+        });
     }
 
     private Bundle generateBundle(Sugerencias suggestion) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(getString(R.string.key_friendSuggestion), suggestion);
+        bundle.putSerializable(getString(R.string.key_suggestion), suggestion);
         return bundle;
     }
 
