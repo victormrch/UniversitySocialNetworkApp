@@ -1,5 +1,6 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,9 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
-public class AddRelationships extends AppCompatActivity {
+import java.io.Serializable;
+
+public class AddRelationships extends AppCompatActivity implements Serializable {
 
     private Gson gson;
     private Usuario user;
@@ -70,6 +73,11 @@ public class AddRelationships extends AppCompatActivity {
      */
     private void prepareActivity() {
         this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
+
+        Intent intent = new Intent(AddRelationships.this, AddGroupFragment.class);
+        Bundle extras = new Bundle();
+        extras.putSerializable("usuario",user);
+        intent.putExtras(extras);
 
     }
 

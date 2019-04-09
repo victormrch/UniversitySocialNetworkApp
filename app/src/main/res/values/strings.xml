@@ -47,6 +47,7 @@
     <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
     <string name="ws_suggestion">http://192.168.183.86:22175/RedSocial-war/api/redsocial/getsuggested</string>
     <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
+    <string name="ws_create_group">http://192.168.183.86:22175/RedSocial-war/api/groups/creategroup</string>
     <string name="error_conexion">Error al conectar</string>
 
     <!-- KEYS para acceder valores de los bundle -->
