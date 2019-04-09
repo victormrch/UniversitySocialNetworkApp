@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity
     public void getUserRefreshed(Usuario user) {
         this.usuario = user;
         chargePost(this.usuario);
-        ;
         chargeComment(this.usuario);
     }
 

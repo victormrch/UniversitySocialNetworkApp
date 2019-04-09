@@ -14,11 +14,11 @@
 
         <EditText
             android:id="@+id/etSearchFriends"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Buscar y Seguir a nuevo amigo" />
+            android:hint="Buscar y Seguir a nuevo amigo" />
 
         <Button
             android:layout_width="wrap_content"

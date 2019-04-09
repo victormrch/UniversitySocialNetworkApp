@@ -64,6 +64,7 @@ public class AddRelationships extends AppCompatActivity {
     private Bundle generateBundle(Sugerencias suggestion) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(getString(R.string.key_suggestion), suggestion);
+        bundle.putSerializable(getString(R.string.key_userLogged), user);
         return bundle;
     }
 
@@ -94,7 +95,7 @@ public class AddRelationships extends AppCompatActivity {
      * @param response
      */
     public void getSuggestionFromResponse(String response) {
-
+        Gson gson = new GsonBuilder().create();
         Sugerencias sug = gson.fromJson(response, Sugerencias.class);
         this.suggestion = sug;
     }
