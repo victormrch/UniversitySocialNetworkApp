@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/Fondo"
-        android:orientation="vertical"
-        android:padding="30dp">
+        android:orientation="vertical">
+        <!--android:padding="10dp">-->
 
         <TextView
             android:id="@+id/tvEmail"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvEmail"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/tvApellidos"
@@ -54,8 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvApellidos"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:ems="10" />
 
         <TextView
             android:id="@+id/tvNombre"
@@ -71,8 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvNombre"
-            android:ems="10"
-            android:inputType="textPassword" />
+            android:ems="10" />
 
         <TextView
             android:id="@+id/tvTelefono"
@@ -88,8 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTelefono"
-            android:ems="10"
-            android:inputType="textPassword" />
+            android:ems="10" />
 
         <TextView
             android:id="@+id/tvContraseña"
@@ -124,7 +121,7 @@
             android:layout_below="@id/tvContraseña2"
             android:ems="10"
             android:inputType="textPassword" />
-
+        <!--
         <TextView
             android:id="@+id/tvImagen"
             android:layout_width="wrap_content"
@@ -141,29 +138,29 @@
             android:layout_below="@id/tvImagen"
             android:layout_marginTop="5dp"
             android:text="Imagen"
-            android:textSize="@dimen/registro" />
+            android:textSize="@dimen/registro" />-->
 
         <Button
             android:id="@+id/btnRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnImagen"
-            android:backgroundTint="@color/colorAccent"
+            android:layout_below="@id/tvVolver"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/btnRegistro"
             android:textColor="@color/letra"
             android:textSize="@dimen/registro" />
 
         <TextView
             android:id="@+id/tvVolver"
-            android:layout_width="191dp"
-            android:layout_height="54dp"
-            android:layout_below="@+id/tvImagen"
-            android:layout_marginLeft="93dp"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etContraseña2"
             android:layout_marginTop="7dp"
-            android:layout_toRightOf="@id/btnImagen"
             android:text="@string/tvVolver"
             android:textColor="@color/Boton"
-            android:textSize="@dimen/registro" />
+            android:textSize="@dimen/login2" />
+        <!--android:layout_toRightOf="@id/btnImagen"-->
 
 
         <ProgressBar

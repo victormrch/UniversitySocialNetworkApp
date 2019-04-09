@@ -3,6 +3,8 @@ package com.victormramon.universitysocialnetwork;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.victormramon.universitysocialnetwork.modelos.Usuario;
+import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
+import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewcomment.CommentRecyclerAdapter;
+import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewpost.PostRecyclerAdapter;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,6 +28,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
+
+            private TextView tvName;
+            private TextView tvSurname;
+            private TextView tvEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +50,21 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        prepareView();
+
+    }
+
+    private void prepareView() {
+        Bundle args = getIntent().getExtras();
+        this.tvName = (TextView) findViewById(R.id.tvName);
+        this.tvSurname = (TextView) findViewById(R.id.tvSurname);
+        this.tvEmail = (TextView) findViewById(R.id.tvEmail);
+
+
+
+        Usuario usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
+        cargarTextView(usuario);
+        cargarComentario(usuario);
     }
 
     @Override
@@ -95,5 +122,38 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+
+    public void cargarTextView(Usuario userLogged) {
+
+        tvName.setText(userLogged.getNombre());
+        tvSurname.setText(userLogged.getApellidos());
+        tvEmail.setText(userLogged.getEmail());
+
+        PostRecyclerAdapter recAdapter =
+                new PostRecyclerAdapter(R.layout.item_post, userLogged.getPostList());
+
+        RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
+
+        // Mejora el rendimiento
+        recView.setHasFixedSize(true);
+        recView.setLayoutManager(new LinearLayoutManager(this));
+        recView.setAdapter(recAdapter);
+    }
+
+    public void cargarComentario (Usuario userLogged){
+
+        CommentRecyclerAdapter recAdapter =
+                new CommentRecyclerAdapter(R.layout.comment_item, userLogged.getComentarioGrupoList());
+
+        RecyclerView recView = (RecyclerView) findViewById(R.id.rvLastComment);
+
+        // Mejora el rendimiento
+        recView.setHasFixedSize(true);
+        recView.setLayoutManager(new LinearLayoutManager(this));
+        recView.setAdapter(recAdapter);
+
     }
 }

@@ -31,7 +31,7 @@
     <string name="university_social_network">University Social Network</string>
     <string name="registrate_ahora">Registrate Ahora</string>
     <string name="no_tienes_cuenta_todav_a">¿No tienes cuenta?</string>
-    <string name="tvDescription">Una descripcion de ejemplo de la pagina(cambiar en clase)</string>
+    <string name="tvDescription">Your university, your friends, your life!</string>
     <string name="tvPassword2">REPITE CONTRASEÑA</string>
     <string name="tvNombre">NOMBRE</string>
     <string name="tvApellidos">APELLIDOS</string>
@@ -39,5 +39,21 @@
     <string name="tvTelefono">TELEFONO</string>
     <string name="tvVolver">¿Tienes cuenta? Identifícate</string>
     <string name="tvImagen">Selecciona una foto de perfil:</string>
+
+    <!-- String para la pantalla nueva publicación-->
+    <string name="tvNewPublication">Añadir Nueva Publicación</string>
+
+    <!-- Direcciones de api rest -->
+    <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
+    <string name="ws_suggestion">http://192.168.183.86:22175/RedSocial-war/api/redsocial/getsuggested</string>
+    <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
+    <string name="error_conexion">Error al conectar</string>
+
+    <!-- KEYS para acceder valores de los bundle -->
+    <string name="key_userLogged">userLogged</string>
+    <string name="key_suggestion">friendSuggestion</string>
+    <string name="key_friendSelected">friendSelected</string>
+    <string name="key_groupSelected">groupSelected</string>
+
 
 </resources>
