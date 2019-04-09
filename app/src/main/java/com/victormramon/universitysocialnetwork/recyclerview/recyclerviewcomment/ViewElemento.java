@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.ComentarioGrupo;
-import com.victormramon.universitysocialnetwork.modelos.Post;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

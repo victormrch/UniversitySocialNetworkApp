@@ -27,6 +27,7 @@ public class AddFriendFragment extends Fragment {
         prepare(rootView);
         return rootView;
     }
+
     private void prepare(View v) {
         getBundleFromArgument();
         SuggestionRecyclerAdapter rvAdapter = new SuggestionRecyclerAdapter

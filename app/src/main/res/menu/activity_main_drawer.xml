@@ -4,18 +4,18 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/profile"
-        android:title="Mi Perfil" />
-    <item
-        android:id="@+id/nav_friends"
-        android:icon="@drawable/friends"
-        android:title="Amigos" />
-    <item
-        android:id="@+id/nav_groups"
-        android:icon="@drawable/groups"
-        android:title="Grupos" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile"
+            android:title="Mi Perfil" />
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/friends"
+            android:title="Amigos" />
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/groups"
+            android:title="Grupos" />
     </group>
 
 
@@ -28,12 +28,7 @@
             <item
                 android:id="@+id/nav_new_friend"
                 android:icon="@drawable/new_friend"
-                android:title="Nuevo Amigo" />
-
-            <item
-                android:id="@+id/nav_new_group"
-                android:icon="@drawable/new_group"
-                android:title="Nuevo Grupo" />
+                android:title="Nuevo Amigo/Grupo" />
 
 
         </menu>

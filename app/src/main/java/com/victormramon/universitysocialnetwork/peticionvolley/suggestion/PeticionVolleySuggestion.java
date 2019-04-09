@@ -39,34 +39,35 @@ public class PeticionVolleySuggestion {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest jsonObjectRequest =
-            new JsonObjectRequest(Request.Method.POST, url, userLogin,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            //4-04 -> pinta al main activity con el json del usuario que viene del servidor
-                            // activity = (Groups) context;
-                            //activity.cargarJson(response.toString());
-                            AddRelationships activi = (AddRelationships) context;
-                            activi.getSuggestionFromResponse(response.toString());
-                            Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                    Toast.LENGTH_LONG);
-                        }
-
-
+                new JsonObjectRequest(Request.Method.POST, url, userLogin,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //4-04 -> pinta al main activity con el json del usuario que viene del servidor
+                                // activity = (Groups) context;
+                                //activity.cargarJson(response.toString());
+                                AddRelationships activity = (AddRelationships) context;
+                                activity.getSuggestionFromResponse(response.toString());
+                                Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                                Toast.LENGTH_LONG);
                     }
-            );
 
-    queue.add(jsonObjectRequest);
+
+                }
+                );
+
+        queue.add(jsonObjectRequest);
     }
 
     /**
      * necesitamos un Map para crear el JSON object de manera correcta
+     *
      * @param id id del usuario
      * @return JSONObject ya creado con los datos
      */

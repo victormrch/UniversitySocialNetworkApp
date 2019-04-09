@@ -3,15 +3,13 @@
     android:pivotX="50%"
     android:pivotY="50%"
     android:fromDegrees="0"
-    android:toDegrees="1440"
-    >
+    android:toDegrees="1440">
 
     <shape
         android:shape="ring"
         android:innerRadiusRatio="3"
         android:thicknessRatio="8"
-        android:useLevel="false"
-        >
+        android:useLevel="false">
 
         <size
             android:width="76dip"
@@ -22,7 +20,7 @@
             android:useLevel="false"
             android:startColor="@color/colorAccent"
             android:endColor="@color/colorFondoIcono"
-            android:angle="0"/>
+            android:angle="0" />
 
     </shape>
 

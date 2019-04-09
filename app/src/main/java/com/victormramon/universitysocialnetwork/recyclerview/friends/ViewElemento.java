@@ -23,11 +23,10 @@ public class ViewElemento extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(item instanceof Usuario || item instanceof Grupos) {
+                if (item instanceof Usuario || item instanceof Grupos) {
 
                     ShowListRecyclerAdapter.onItemClickListener(item);
-                }
-                else {
+                } else {
                     Toast.makeText(itemView.getContext(), "algo no ha ido bien al cargar el detalle", Toast.LENGTH_LONG)
                             .show();
                 }
@@ -36,10 +35,9 @@ public class ViewElemento extends RecyclerView.ViewHolder {
     }
 
 
-
     public void setUpHolder(Object item) {
 
-        if(item instanceof Usuario) {
+        if (item instanceof Usuario) {
             //para manejarlo en el onItemClickListener como parametro
             this.item = (Usuario) item;
             Usuario friend = (Usuario) item;
@@ -55,10 +53,10 @@ public class ViewElemento extends RecyclerView.ViewHolder {
         } else {
             this.item = (Grupos) item;
             Grupos grupo = (Grupos) item;
-            if (grupo != null ) {
+            if (grupo != null) {
                 int lastPosition = (grupo.getComentarioGrupoList().size()) - 1;
                 tvNombre.setText(grupo.getNombre());
-                if ( grupo.getComentarioGrupoList().size() > 0) {
+                if (grupo.getComentarioGrupoList().size() > 0) {
                     tvFriendPost.setText(grupo.getComentarioGrupoList().get(lastPosition).getComentario());
                 } else {
                     tvFriendPost.setText("No hay comentario");

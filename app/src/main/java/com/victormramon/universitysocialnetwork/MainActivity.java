@@ -1,16 +1,16 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,17 +21,15 @@ import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewcomment.CommentRecyclerAdapter;
 import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewpost.PostRecyclerAdapter;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
 
-            private TextView tvName;
-            private TextView tvSurname;
-            private TextView tvEmail;
+
+    private TextView tvName;
+    private TextView tvSurname;
+    private TextView tvEmail;
+    private Usuario usuario = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +37,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -61,10 +58,9 @@ public class MainActivity extends AppCompatActivity
         this.tvEmail = (TextView) findViewById(R.id.tvEmail);
 
 
-
-        Usuario usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
-        cargarTextView(usuario);
-        cargarComentario(usuario);
+        usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
+        chargeTextView(usuario);
+        chargeComment(usuario);
     }
 
     @Override
@@ -92,14 +88,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_profile) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -108,14 +103,36 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_profile) {
             // Handle the camera action
         } else if (id == R.id.nav_friends) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Friends.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_groups) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Groups.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_post) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), AddPublicationActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
 
         } else if (id == R.id.nav_new_friend) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-        } else if (id == R.id.nav_new_group) {
+            Intent intent = new Intent(this, AddRelationships.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         }
 
@@ -124,33 +141,69 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                //pedir el usuario logeado de nuevo para recibir los cambios
+                PeticionVolley volley = new PeticionVolley(this, usuario);
+                volley.getUsuarioVolley();
+            }
+        }
+    }
 
-    public void cargarTextView(Usuario userLogged) {
+    /**
+     * recoge el usuario del servidor con los cambios realizados (post añadidos o borrados(aun sin hacer))
+     * y pinta d enuevo los recycler view
+     *
+     * @param user
+     */
+    public void getUserRefreshed(Usuario user) {
+        this.usuario = user;
+        chargePost(this.usuario);
+        ;
+        chargeComment(this.usuario);
+    }
+
+    public void chargeTextView(Usuario userLogged) {
 
         tvName.setText(userLogged.getNombre());
         tvSurname.setText(userLogged.getApellidos());
         tvEmail.setText(userLogged.getEmail());
 
+        chargePost(userLogged);
+
+    }
+
+    /**
+     * pinta los recycler view con los post del usuario
+     *
+     * @param userLogged
+     */
+    private void chargePost(Usuario userLogged) {
         PostRecyclerAdapter recAdapter =
                 new PostRecyclerAdapter(R.layout.item_post, userLogged.getPostList());
 
         RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
 
-        // Mejora el rendimiento
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(recAdapter);
     }
 
-    public void cargarComentario (Usuario userLogged){
+    /**
+     * pinta los recycler view con los comentarios
+     *
+     * @param userLogged
+     */
+    public void chargeComment(Usuario userLogged) {
 
         CommentRecyclerAdapter recAdapter =
                 new CommentRecyclerAdapter(R.layout.comment_item, userLogged.getComentarioGrupoList());
 
         RecyclerView recView = (RecyclerView) findViewById(R.id.rvLastComment);
 
-        // Mejora el rendimiento
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(recAdapter);

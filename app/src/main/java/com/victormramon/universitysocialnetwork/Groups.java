@@ -1,17 +1,15 @@
 package com.victormramon.universitysocialnetwork;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.victormramon.universitysocialnetwork.callback.Callback;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.recyclerview.friends.ShowListRecyclerAdapter;
 
 public class Groups extends AppCompatActivity implements Callback {
@@ -30,9 +28,12 @@ public class Groups extends AppCompatActivity implements Callback {
      * cargar rv con amigos
      */
     public void start() {
+        this.user = (Usuario) getIntent().getExtras()
+                .getSerializable(getString(R.string.key_userLogged));
 
-        gson = new GsonBuilder().create();
-        getUser();
+        //gson = new GsonBuilder().create();
+        //getUser();
+        chargeRV(this.user, R.layout.groups_item, R.id.rvGroups);
     }
 
     public void getUser() {
@@ -40,7 +41,7 @@ public class Groups extends AppCompatActivity implements Callback {
     }
 
     public void cargarJson(String json) {
-        
+
         chargeRV(user, R.layout.friends_item, R.id.rvGroups);
     }
 

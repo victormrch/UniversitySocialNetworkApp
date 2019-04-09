@@ -41,6 +41,8 @@ public class GroupDetailed extends AppCompatActivity {
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(rvAdapter);
+
+
     }
 
     private void getGroupFromIntent() {

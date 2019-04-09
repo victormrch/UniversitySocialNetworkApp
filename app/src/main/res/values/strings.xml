@@ -5,7 +5,12 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+
+    <!-- String para el menu de la cabecera (3 puntos) -->
     <string name="action_settings">Settings</string>
+    <string name="action_profile">Mi Perfil</string>
+    <string name="action_friends">Mis Amigos</string>
+    <string name="action_groups">Mis Grupos</string>
 
     <!-- String para el fragment Nueva Publicación -->
     <string name="new_publication">NUEVA PUBLICACIÓN</string>
@@ -45,6 +50,8 @@
 
     <!-- Direcciones de api rest -->
     <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
+    <string name="ws_refeshUser">http://192.168.183.86:22175/RedSocial-war/api/redsocial/refreshuser</string>
+
     <string name="ws_suggestion">http://192.168.183.86:22175/RedSocial-war/api/redsocial/getsuggested</string>
     <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
     <string name="ws_create_group">http://192.168.183.86:22175/RedSocial-war/api/groups/creategroup</string>
