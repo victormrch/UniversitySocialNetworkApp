@@ -3,6 +3,7 @@ package com.victormramon.universitysocialnetwork.peticionvolley;
 import android.app.Activity;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -63,19 +64,25 @@ public class PeticionVolleyCreateGroups {
                 }
                 );
 
-        queue.add(jsonObjectRequest);
+        //queue.add(jsonObjectRequest);
+        queue.add(jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        )));
+
     }
 
     private JSONObject crearJsonObjectGrupo(EncapsularInfoPost grupos,Usuario usuario) {
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("nombre", grupos.getGrupo().getNombre());
+        Map<String, Object> paramsGroup = new HashMap<String, Object>();
+        paramsGroup.put("nombre", grupos.getGrupo().getNombre());
 
-        Map<String,Object> paramsUsuario = new HashMap<String, Object>();
-        paramsUsuario.put("id", usuario.getId());
+        Map<String,Object> paramsEncapsular = new HashMap<String, Object>();
+        paramsEncapsular.put("idUsuario", usuario.getId());
 
-        params.put("usuario", paramsUsuario);
+        paramsEncapsular.put("grupo", paramsGroup);
 
-        return new JSONObject(params);
+        return new JSONObject(paramsEncapsular);
     }
 
 

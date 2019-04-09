@@ -18,7 +18,6 @@ import com.victormramon.universitysocialnetwork.modelos.EncapsularInfoPost;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyCreateGroups;
 import com.victormramon.universitysocialnetwork.recyclerview.suggestions.SuggestionRecyclerAdapter;
 
@@ -40,10 +39,6 @@ public class AddGroupFragment extends Fragment implements Serializable {
         prepare(view);
         return view;
 
-
-
-
-
     }
 
     private void prepare(View v) {
@@ -58,25 +53,21 @@ public class AddGroupFragment extends Fragment implements Serializable {
         //volleySuggestion.getUsuarioVolley();
 
         btn = v.findViewById(R.id.crear_grupo);
-        nombreGrupo= v.findViewById(R.id.etSearchFriends);
-        actividad= getActivity();
-        user = (Usuario)getActivity().getIntent().getExtras().getSerializable("usuario");
+        nombreGrupo = v.findViewById(R.id.etSearchFriends);
+        actividad = getActivity();
+        user = (Usuario) getArguments().getSerializable(getString(R.string.key_userLogged));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
 
                 Grupos g = new Grupos();
                 EncapsularInfoPost grupoCap = new EncapsularInfoPost();
                 g.setNombre(nombreGrupo.getText().toString());
                 grupoCap.setGrupo(g);
 
-                PeticionVolleyCreateGroups post = new PeticionVolleyCreateGroups(actividad,grupoCap,user);
+                PeticionVolleyCreateGroups post = new PeticionVolleyCreateGroups(actividad, grupoCap, user);
                 post.doPostRequestToSave();
-
 
 
             }
