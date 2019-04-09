@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Crear nuevo Grupo" />
+            android:hint="Crear nuevo Grupo" />
 
         <Button
             android:id="@+id/btnUpload"
