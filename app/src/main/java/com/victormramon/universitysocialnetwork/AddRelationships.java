@@ -92,7 +92,7 @@ public class AddRelationships extends AppCompatActivity {
      * @param response
      */
     public void getSuggestionFromResponse(String response) {
-
+        Gson gson = new GsonBuilder().create();
         Sugerencias sug = gson.fromJson(response, Sugerencias.class);
         this.suggestion = sug;
     }

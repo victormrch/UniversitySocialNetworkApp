@@ -28,6 +28,7 @@ public class FriendDetailed extends AppCompatActivity {
         tvApellido.setText(friend.getApellidos());
         TextView tvEmail = findViewById(R.id.tvEmail);
         tvEmail.setText(friend.getEmail());
+
         findViewById(R.id.tvTitleLastComment).setVisibility(View.GONE);
         chargeRV(friend);
     }
@@ -39,7 +40,6 @@ public class FriendDetailed extends AppCompatActivity {
 
        RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
 
-       // Mejora el rendimiento
        recView.setHasFixedSize(true);
        recView.setLayoutManager(new LinearLayoutManager(this));
        recView.setAdapter(recAdapter);

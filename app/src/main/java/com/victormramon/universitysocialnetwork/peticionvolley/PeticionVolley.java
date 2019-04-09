@@ -29,18 +29,28 @@ public class PeticionVolley {
     private Activity context;
     private String url;
     private JSONObject userLogin;
+    private boolean toUpdate = false;
 
     public PeticionVolley(Activity context, Usuario user) {
         this.context = context;
-        this.url = context.getString(R.string.ws_login);
 
-        userLogin = this.crearJsonObjectUsuario(user.getEmail(), user.getPassword());
-
+        if (user.getId() == null) {
+            userLogin = this.crearJsonObjectUsuario(user.getEmail(), user.getPassword());
+        } else {
+            toUpdate = true;
+            userLogin = this.crearJsonObjectUsuario(user.getId());
+        }
     }
 
     public void getUsuarioVolley(/*Usuario userToLogin*/) {
 
         RequestQueue queue = Volley.newRequestQueue(context);
+
+        if (toUpdate) {
+            this.url = context.getString(R.string.ws_refeshUser);
+        } else {
+            this.url = context.getString(R.string.ws_login);
+        }
 
         JsonObjectRequest jsonObjectRequest =
                 new JsonObjectRequest(Request.Method.POST, url, userLogin,
@@ -48,19 +58,23 @@ public class PeticionVolley {
                             @Override
                             public void onResponse(JSONObject response) {
                                 //4-04 -> pinta al main activity con el json del usuario que viene del servidor
-                                Usuario user = fromJsonToUsuario(response.toString());
-                                LoginActivity acitivity = (LoginActivity) context;
-                                acitivity.cargarSiguienteActivity(user);
+                                if (toUpdate) {
+                                    Usuario user = fromJsonToUsuario(response.toString());
+                                    MainActivity activity = (MainActivity) context;
+                                    activity.getUserRefreshed(user);
+                                } else {
+                                    Usuario user = fromJsonToUsuario(response.toString());
+                                    LoginActivity activity = (LoginActivity) context;
+                                    activity.cargarSiguienteActivity(user);
+                                }
                             }
                         }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                Toast.LENGTH_LONG);
-                    }
-
-
-                    }
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(context, "Ha ocurrido un error en la petición",
+                                        Toast.LENGTH_LONG);
+                            }
+                        }
             );
 
     queue.add(jsonObjectRequest);
@@ -79,11 +93,16 @@ public class PeticionVolley {
         return new JSONObject(params);
     }
 
-    private Usuario fromJsonToUsuario(String userJson) {
+    private JSONObject crearJsonObjectUsuario(Integer idUser) {
+        Map<String, Integer> params = new HashMap<String, Integer>();
+        params.put("id", idUser);
+        return new JSONObject(params);
+    }
 
+    private Usuario fromJsonToUsuario(String userJson) {
         Gson gson = new GsonBuilder().create();
-        Usuario userLogget = gson.fromJson(userJson, Usuario.class);
-        return userLogget;
+        Usuario userLogged = gson.fromJson(userJson, Usuario.class);
+        return userLogged;
     }
 
 }

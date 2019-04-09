@@ -9,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.victormramon.universitysocialnetwork.AddPublicationActivity;
 import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Post;
@@ -25,13 +26,13 @@ public class PeticionVolleyPublications {
 
     private Activity context;
     private String url;
-    private JSONObject userLogin;
+    private JSONObject infoPackage;
     private SimpleDateFormat sdt;
 
     public PeticionVolleyPublications(Activity context, Usuario user, Post post) {
         this.context = context;
         this.url = context.getString(R.string.ws_safe_post);
-        userLogin = this.crearJsonObjectUsuario(user, post);
+        infoPackage = this.crearJsonObjectUsuario(user, post);
 
     }
 
@@ -40,15 +41,18 @@ public class PeticionVolleyPublications {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest jsonObjectRequest =
-                new JsonObjectRequest(Request.Method.POST, url, userLogin,
+                new JsonObjectRequest(Request.Method.POST, url, infoPackage,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                //4-04 -> pinta al main activity con el json del usuario que viene del servidor
-                                MainActivity activity = (MainActivity) context;
-                                //activity.cargarJson(response.toString());
+
+                                //utilizamos esto para el método que construye el intent result
+                                AddPublicationActivity activity = (AddPublicationActivity) context;
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
+                                activity.onSavePostServerResult();
+                                //activity.cargarJson(response.toString());
+
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -76,8 +80,6 @@ public class PeticionVolleyPublications {
 
         Map<String,Object> paramsPost = new HashMap<String, Object>();
         paramsPost.put("contenido", post.getContenido());
-        paramsPost.put("fecha", selectDateFormat(post.getFecha()));
-        paramsPost.put("idPublicador", post.getIdPublicador().getId());
 
         params.put("post", paramsPost);
 

@@ -1,16 +1,22 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.victormramon.universitysocialnetwork.callback.Callback;
 import com.victormramon.universitysocialnetwork.callback.CallbackPost;
+import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
+import com.victormramon.universitysocialnetwork.fragments.AddPostFragment;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyPublications;
 
 import java.util.Date;
 
-public class AddPublicationActivity extends AppCompatActivity implements CallbackPost {
+public class AddPublicationActivity extends AppCompatActivity implements Callback {
 
     private Usuario userLogged;
 
@@ -18,6 +24,12 @@ public class AddPublicationActivity extends AppCompatActivity implements Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_publication);
+        getUserFromIntent();
+        chargeFragment();
+    }
+
+    public void getUserFromIntent() {
+        this.userLogged = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
     }
 
 
@@ -25,17 +37,42 @@ public class AddPublicationActivity extends AppCompatActivity implements Callbac
     public void onItemClick(Object item) {
         if (item instanceof Post) {
             Post postToSave = (Post) item;
-            postToSave.setFecha(new Date());
-            postToSave.setIdPublicador(userLogged);
             sendToServer(postToSave);
+
+            onSavePostServerResult();
         }
+
     }
 
+    /**
+     * manda a la activity que está esperando el resultado (para actualizar el usuario desde la base de datos)
+     */
+    public void onSavePostServerResult() {
+        Intent result = new Intent();
+        setResult(Activity.RESULT_OK, result);
+        finish();
+    }
+
+    /**
+     * se encarga de instanciar la peticion volley y de ejecutar el método para hacerla
+     * @param item objeto que se va a mandar
+     */
     private void sendToServer(Object item) {
         PeticionVolleyPublications volleyPost = null;
         if (item instanceof Post) {
-            new PeticionVolleyPublications(this, userLogged,(Post) item);
+            volleyPost = new PeticionVolleyPublications(this, userLogged,(Post) item);
             volleyPost.doPostRequestToSave();
         }
     }
+
+    private void chargeFragment() {
+        AddPostFragment fragmentToCharge = new AddPostFragment();
+        FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+        t.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        t.replace(R.id.flNewPublication, fragmentToCharge);
+        t.addToBackStack(null);
+        t.commit();
+    }
+
+
 }

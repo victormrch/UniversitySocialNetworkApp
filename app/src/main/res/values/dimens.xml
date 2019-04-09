@@ -43,9 +43,9 @@
     <dimen name="tamano_txt_principal_groups">30sp</dimen>
 
     <!-- Dimensiones y margenes Pantalla Login-Registro-->
-    <dimen name="login">25dp</dimen>
+    <dimen name="login">15sp</dimen>
     <dimen name="registro">10dp</dimen>
-    <dimen name="login2">20dp</dimen>
+    <dimen name="login2">15sp</dimen>
 
     <!-- Dimensiones y margenes Pantalla Nuevas Publicaciones-->
     <dimen name="tamano_txt_principal_new_publication">25sp</dimen>
