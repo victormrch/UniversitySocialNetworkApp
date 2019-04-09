@@ -12,9 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.victormramon.universitysocialnetwork.AddPublicationActivity;
-import com.victormramon.universitysocialnetwork.callback.Callback;
-import com.victormramon.universitysocialnetwork.callback.CallbackPost;
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.callback.Callback;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -25,7 +24,6 @@ public class AddPostFragment extends Fragment {
     private Usuario userLogged;
     private AddPublicationActivity activity;
     private Callback callback;
-
 
 
     @Override
@@ -48,19 +46,18 @@ public class AddPostFragment extends Fragment {
         btnNewPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            EditText publication = (EditText) view.findViewById(R.id.etPublication);
+                EditText publication = (EditText) view.findViewById(R.id.etPublication);
 
-            Post post = new Post();
-            post.setContenido(publication.getText().toString());
+                Post post = new Post();
+                post.setContenido(publication.getText().toString());
 
-            callback.onItemClick(post);
+                callback.onItemClick(post);
 
 
             }
         });
 
     }
-
 
 
 }

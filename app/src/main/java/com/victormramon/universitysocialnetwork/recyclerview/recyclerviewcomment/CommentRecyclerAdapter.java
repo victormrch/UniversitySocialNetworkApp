@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.victormramon.universitysocialnetwork.modelos.ComentarioGrupo;
-import com.victormramon.universitysocialnetwork.modelos.Post;
-
-import org.w3c.dom.Comment;
 
 import java.util.List;
 

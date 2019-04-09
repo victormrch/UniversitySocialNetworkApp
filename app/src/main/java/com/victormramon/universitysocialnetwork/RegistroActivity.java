@@ -21,8 +21,8 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText etNombre;
     private EditText etTelefono;
     private EditText etContraseña;
-   // private EditText etContraseña2;
-   // private Button btni;
+    // private EditText etContraseña2;
+    // private Button btni;
     private Button btnr;
     private TextView tvVolver;
     private ProgressBar progressBar;
@@ -40,7 +40,7 @@ public class RegistroActivity extends AppCompatActivity {
         etNombre = findViewById(R.id.etNombre);
         etTelefono = findViewById(R.id.etTelefono);
         etContraseña = findViewById(R.id.etContraseña);
-       // etContraseña2 = findViewById(R.id.etContraseña2);
+        // etContraseña2 = findViewById(R.id.etContraseña2);
         // btni = findViewById(R.id.btnImagen);
         btnr = findViewById(R.id.btnRegistro);
         tvVolver = findViewById(R.id.tvVolver);
@@ -68,17 +68,18 @@ public class RegistroActivity extends AppCompatActivity {
         tvVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
     }
-    public void volverActivity(Usuario usuario){
+
+    public void volverActivity(Usuario usuario) {
         //Recuperar como objeto
         args = new Bundle();
-        args.putSerializable("usuario",usuario);
+        args.putSerializable("usuario", usuario);
         //Iniciar activityMain pasando los argumentos
-        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         intent.putExtras(args);
         startActivity(intent);
     }

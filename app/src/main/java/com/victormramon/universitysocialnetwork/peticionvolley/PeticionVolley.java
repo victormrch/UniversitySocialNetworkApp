@@ -1,7 +1,6 @@
 package com.victormramon.universitysocialnetwork.peticionvolley;
 
 import android.app.Activity;
-import android.content.Context;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -12,11 +11,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.victormramon.universitysocialnetwork.LoginActivity;
 import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
-import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import org.json.JSONObject;
@@ -69,20 +66,21 @@ public class PeticionVolley {
                                 }
                             }
                         }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                        Toast.LENGTH_LONG);
-                            }
-                        }
-            );
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                                Toast.LENGTH_LONG);
+                    }
+                }
+                );
 
-    queue.add(jsonObjectRequest);
+        queue.add(jsonObjectRequest);
     }
 
     /**
      * necesitamos un Map para crear el JSON object de manera correcta
-     * @param email email del usuario
+     *
+     * @param email    email del usuario
      * @param password password del usuario
      * @return JSONObject ya creado con los datos
      */

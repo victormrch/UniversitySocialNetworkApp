@@ -10,7 +10,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.victormramon.universitysocialnetwork.AddPublicationActivity;
-import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
@@ -69,16 +68,15 @@ public class PeticionVolleyPublications {
     }
 
     /**
-     *
      * @param usuario
      * @param post
      * @return
      */
     private JSONObject crearJsonObjectUsuario(Usuario usuario, Post post) {
-        Map<String,Object> params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<String, Object>();
         params.put("idUsuario", usuario.getId());
 
-        Map<String,Object> paramsPost = new HashMap<String, Object>();
+        Map<String, Object> paramsPost = new HashMap<String, Object>();
         paramsPost.put("contenido", post.getContenido());
 
         params.put("post", paramsPost);
@@ -90,7 +88,6 @@ public class PeticionVolleyPublications {
         sdt = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
         return sdt.format(date);
     }
-
 
 
 }

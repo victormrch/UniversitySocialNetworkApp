@@ -9,7 +9,9 @@ public class Sugerencias implements Serializable {
     private List<Grupos> groupsSuggested;
 
     public Sugerencias() {
-    };
+    }
+
+    ;
 
     public Sugerencias(List<Usuario> friendsSuggested, List<Grupos> groupsSuggested) {
         this.friendsSuggested = friendsSuggested;

@@ -13,25 +13,25 @@
         android:textColor="@color/colorFondoIcono"
         android:textStyle="bold"
         android:gravity="center"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@color/colorPrimaryDark" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        >
+        android:layout_gravity="center_horizontal">
 
         <Button
             android:id="@+id/btnAmigos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Amigos"/>
+            android:text="Amigos" />
+
         <Button
             android:id="@+id/btnGrupos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grupos"
-            android:layout_toRightOf="@id/btnAmigos"/>
+            android:layout_toRightOf="@id/btnAmigos" />
 
     </RelativeLayout>
 

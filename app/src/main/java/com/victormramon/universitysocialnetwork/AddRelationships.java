@@ -12,7 +12,6 @@ import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
 public class AddRelationships extends AppCompatActivity {
@@ -81,6 +80,7 @@ public class AddRelationships extends AppCompatActivity {
 
     /**
      * transformar el json sugerencias a el objeto Sugerencias
+     *
      * @param response
      */
     public void getSuggestionFromResponse(String response) {

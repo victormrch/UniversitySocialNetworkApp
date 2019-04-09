@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,18 +21,15 @@ import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewcomment.CommentRecyclerAdapter;
 import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewpost.PostRecyclerAdapter;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
 
-            private TextView tvName;
-            private TextView tvSurname;
-            private TextView tvEmail;
-            private Usuario usuario = null;
+
+    private TextView tvName;
+    private TextView tvSurname;
+    private TextView tvEmail;
+    private Usuario usuario = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +37,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -63,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         this.tvName = (TextView) findViewById(R.id.tvName);
         this.tvSurname = (TextView) findViewById(R.id.tvSurname);
         this.tvEmail = (TextView) findViewById(R.id.tvEmail);
-
 
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
@@ -96,12 +88,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_profile) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -113,7 +106,7 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-            Intent intent = new Intent(getApplicationContext(),Friends.class);
+            Intent intent = new Intent(getApplicationContext(), Friends.class);
             intent.putExtras(bundle);
             startActivity(intent);
 
@@ -121,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-            Intent intent = new Intent(getApplicationContext(),Groups.class);
+            Intent intent = new Intent(getApplicationContext(), Groups.class);
             intent.putExtras(bundle);
             startActivity(intent);
 
@@ -129,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-            Intent intent = new Intent(getApplicationContext(),AddPublicationActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AddPublicationActivity.class);
             intent.putExtras(bundle);
             startActivityForResult(intent, 1);
 
@@ -137,11 +130,11 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-            Intent intent = new Intent(this ,AddRelationships.class);
+            Intent intent = new Intent(this, AddRelationships.class);
             intent.putExtras(bundle);
             startActivity(intent);
 
-        } 
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -152,7 +145,7 @@ public class MainActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK) {
+            if (resultCode == Activity.RESULT_OK) {
                 //pedir el usuario logeado de nuevo para recibir los cambios
                 PeticionVolley volley = new PeticionVolley(this, usuario);
                 volley.getUsuarioVolley();
@@ -163,11 +156,13 @@ public class MainActivity extends AppCompatActivity
     /**
      * recoge el usuario del servidor con los cambios realizados (post añadidos o borrados(aun sin hacer))
      * y pinta d enuevo los recycler view
+     *
      * @param user
      */
     public void getUserRefreshed(Usuario user) {
         this.usuario = user;
-        chargePost(this.usuario);;
+        chargePost(this.usuario);
+        ;
         chargeComment(this.usuario);
     }
 
@@ -183,6 +178,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * pinta los recycler view con los post del usuario
+     *
      * @param userLogged
      */
     private void chargePost(Usuario userLogged) {
@@ -198,9 +194,10 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * pinta los recycler view con los comentarios
+     *
      * @param userLogged
      */
-    public void chargeComment (Usuario userLogged){
+    public void chargeComment(Usuario userLogged) {
 
         CommentRecyclerAdapter recAdapter =
                 new CommentRecyclerAdapter(R.layout.comment_item, userLogged.getComentarioGrupoList());

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hoy es Martes y seguimos programando"
-        android:textSize="@dimen/texto_recycler"/>
+        android:textSize="@dimen/texto_recycler" />
 
     <TextView
         android:id="@+id/tvFechaComment"
@@ -18,5 +18,5 @@
         android:layout_height="wrap_content"
         android:text="02-04-19 9:36"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorPrimaryDark" />
 </LinearLayout>

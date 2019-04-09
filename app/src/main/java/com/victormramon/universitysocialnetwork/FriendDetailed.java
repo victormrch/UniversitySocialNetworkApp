@@ -33,19 +33,20 @@ public class FriendDetailed extends AppCompatActivity {
         findViewById(R.id.btnNewPubliMain).setVisibility(View.GONE);
         chargeRV(friend);
     }
-   private void chargeRV (Usuario friend){
+
+    private void chargeRV(Usuario friend) {
 
 
-       PostRecyclerAdapter recAdapter =
-               new PostRecyclerAdapter(R.layout.item_post, friend.getPostList());
+        PostRecyclerAdapter recAdapter =
+                new PostRecyclerAdapter(R.layout.item_post, friend.getPostList());
 
-       RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
+        RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
 
-       recView.setHasFixedSize(true);
-       recView.setLayoutManager(new LinearLayoutManager(this));
-       recView.setAdapter(recAdapter);
+        recView.setHasFixedSize(true);
+        recView.setLayoutManager(new LinearLayoutManager(this));
+        recView.setAdapter(recAdapter);
 
-   }
+    }
 
 
     private Usuario getFriendSelected() {

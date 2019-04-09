@@ -2,19 +2,15 @@ package com.victormramon.universitysocialnetwork;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.victormramon.universitysocialnetwork.callback.Callback;
-import com.victormramon.universitysocialnetwork.callback.CallbackPost;
-import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddPostFragment;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyPublications;
-
-import java.util.Date;
 
 public class AddPublicationActivity extends AppCompatActivity implements Callback {
 
@@ -55,12 +51,13 @@ public class AddPublicationActivity extends AppCompatActivity implements Callbac
 
     /**
      * se encarga de instanciar la peticion volley y de ejecutar el método para hacerla
+     *
      * @param item objeto que se va a mandar
      */
     private void sendToServer(Object item) {
         PeticionVolleyPublications volleyPost = null;
         if (item instanceof Post) {
-            volleyPost = new PeticionVolleyPublications(this, userLogged,(Post) item);
+            volleyPost = new PeticionVolleyPublications(this, userLogged, (Post) item);
             volleyPost.doPostRequestToSave();
         }
     }

@@ -49,26 +49,26 @@ public class LoginActivity extends AppCompatActivity {
                 get.getUsuarioVolley();
 
                 //Ocultar progressBar
-                 progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
 
             }
         });
 
-        tvBoton.setOnClickListener(new View.OnClickListener(){
+        tvBoton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    public void cargarSiguienteActivity(Usuario usuario){
+    public void cargarSiguienteActivity(Usuario usuario) {
         //Recuperar como objeto
         args = new Bundle();
-        args.putSerializable(getString(R.string.key_userLogged),usuario);
+        args.putSerializable(getString(R.string.key_userLogged), usuario);
         //Iniciar activityMain pasando los argumentos
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.putExtras(args);
         startActivity(intent);
     }

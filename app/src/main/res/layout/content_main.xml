@@ -97,8 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/recycler_margin_Left"
-        android:layout_marginRight="@dimen/recycler_margin_Right">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_marginRight="@dimen/recycler_margin_Right"></android.support.v7.widget.RecyclerView>
 
     <TextView
         android:id="@+id/tvTitleLastComment"
@@ -114,8 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/recycler_margin_Left"
-        android:layout_marginRight="@dimen/recycler_margin_Right">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_marginRight="@dimen/recycler_margin_Right"></android.support.v7.widget.RecyclerView>
 
 
     <LinearLayout

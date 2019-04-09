@@ -10,7 +10,6 @@ import java.util.Date;
 
 
 /**
- *
  * @author Jesus
  */
 
@@ -99,5 +98,5 @@ public class ComentarioGrupo implements Serializable {
     public String toString() {
         return "redSocial.modelos.ComentarioGrupo[ idComentario=" + idComentario + " ]";
     }
-    
+
 }

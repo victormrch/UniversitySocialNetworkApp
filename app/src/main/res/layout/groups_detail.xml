@@ -11,7 +11,7 @@
         android:id="@+id/ivGroupDetail"
         android:layout_width="@dimen/ancho_imagen"
         android:layout_height="@dimen/alto_imagen"
-        android:src="@drawable/cityrunningclub"/>
+        android:src="@drawable/cityrunningclub" />
 
     <TextView
         android:id="@+id/tvNameGroupDetail"
@@ -22,19 +22,17 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="15dp"
         android:textSize="15sp"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
-    android:id="@+id/tvUsersGroupDetail"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_toRightOf="@+id/ivGroupDetail"
-    android:layout_below="@id/tvNameGroupDetail"
-    android:text="Nº Integrantes del grupo:"
-    android:layout_marginLeft="15dp"
-    android:textColor="@color/colorPrimaryDark"
-    />
+        android:id="@+id/tvUsersGroupDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivGroupDetail"
+        android:layout_below="@id/tvNameGroupDetail"
+        android:text="Nº Integrantes del grupo:"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/tvNumberUsersGroupDetail"
@@ -44,8 +42,7 @@
         android:layout_below="@id/tvNameGroupDetail"
         android:text="20"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        android:textColor="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:id="@+id/lLNewPublication"
@@ -65,16 +62,17 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/tvGroupComment"
-            android:text="Fecha"/>
+            android:text="Fecha" />
 
         <TextView
             android:id="@+id/tvUserComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/tvDateComment"
-            android:text="Usuario"/>
+            android:text="Usuario" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/tvCommentGroupDetail"
         android:layout_width="match_parent"
@@ -83,12 +81,12 @@
         android:text="Últimos comentarios del Grupo"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
 
     <android.support.v7.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/lLNewPublication">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lLNewPublication">
 
-</android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
