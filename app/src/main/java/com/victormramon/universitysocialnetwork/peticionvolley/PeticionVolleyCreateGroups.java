@@ -51,6 +51,7 @@ public class PeticionVolleyCreateGroups {
                                 //activity.cargarJson(response.toString());
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
+                                activity.onSavePostServerResult();
                             }
                         }, new Response.ErrorListener() {
                     @Override

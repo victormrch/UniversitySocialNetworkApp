@@ -35,7 +35,7 @@ public class PeticionVolleyPublications {
 
     }
 
-    public void doPostRequestToSave(/*Usuario userToLogin*/) {
+    public void doPostRequestToSave() {
 
         RequestQueue queue = Volley.newRequestQueue(context);
 

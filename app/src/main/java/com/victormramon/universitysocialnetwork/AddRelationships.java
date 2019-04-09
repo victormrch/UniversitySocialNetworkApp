@@ -1,5 +1,7 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -96,5 +98,15 @@ public class AddRelationships extends AppCompatActivity {
         Sugerencias sug = gson.fromJson(response, Sugerencias.class);
         this.suggestion = sug;
     }
+
+    /**
+     * manda a la activity que está esperando el resultado (para actualizar el usuario desde la base de datos)
+     */
+    public void onSavePostServerResult() {
+        Intent result = new Intent();
+        setResult(Activity.RESULT_OK, result);
+        finish();
+    }
+
 
 }
