@@ -78,14 +78,6 @@ public class AddRelationships extends AppCompatActivity {
         volleySuggestion.getUsuarioVolley();
     }
 
-//    /**
-//     * transformar el json usuario a un Usuario
-//     * @param response
-//     */
-//    public void  getUserFromResponse(String response) {
-//        gson = new GsonBuilder().create();
-//        this.suggestion=gson.fromJson(response, Sugerencias.class);
-//    }
 
     /**
      * transformar el json sugerencias a el objeto Sugerencias

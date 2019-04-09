@@ -30,6 +30,7 @@ public class FriendDetailed extends AppCompatActivity {
         tvEmail.setText(friend.getEmail());
 
         findViewById(R.id.tvTitleLastComment).setVisibility(View.GONE);
+        findViewById(R.id.btnNewPubliMain).setVisibility(View.GONE);
         chargeRV(friend);
     }
    private void chargeRV (Usuario friend){
