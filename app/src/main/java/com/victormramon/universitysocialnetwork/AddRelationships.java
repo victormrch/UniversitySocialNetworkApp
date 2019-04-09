@@ -70,7 +70,7 @@ public class AddRelationships extends AppCompatActivity {
      */
     private void prepareActivity() {
         this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
-
+        getSuggestion(user);
     }
 
     public void getSuggestion(Usuario user) {
