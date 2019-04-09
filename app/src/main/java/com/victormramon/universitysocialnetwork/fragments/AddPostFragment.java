@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.victormramon.universitysocialnetwork.AddPublicationActivity;
 import com.victormramon.universitysocialnetwork.R;
@@ -25,12 +26,29 @@ public class AddPostFragment extends Fragment {
     private AddPublicationActivity activity;
     private Callback callback;
 
+    private Spinner mSpinnerDynamic;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.new_publication_frag, container, false);
+
+//        mSpinnerDynamic = (Spinner) rootView.findViewById(R.id.spinner);
+//
+//        addItemsOnSpinnerDynamic();
+//
+//        mSpinnerDynamic.setOnItemSelectedListener(myItemSelectedListener);
+
         prepare(rootView);
         return rootView;
+
+
+
+
+    }
+
+    private void addItemsOnSpinnerDynamic() {
+
     }
 
     @Override
