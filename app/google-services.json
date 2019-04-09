@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "52017003949",
+    "firebase_url": "https://universitysocialnetwork-713ad.firebaseio.com",
+    "project_id": "universitysocialnetwork-713ad",
+    "storage_bucket": "universitysocialnetwork-713ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52017003949:android:74f52e9a1549f8a6",
+        "android_client_info": {
+          "package_name": "com.victormramon.universitysocialnetwork"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_67eNfORvliZHhjOH22qATKLaacRVxfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52017003949-ha9tvbjs3ctmaef64mhctaomh88l03vg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
