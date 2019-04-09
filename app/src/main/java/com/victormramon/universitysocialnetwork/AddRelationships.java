@@ -70,7 +70,7 @@ public class AddRelationships extends AppCompatActivity {
      */
     private void prepareActivity() {
         this.user = (Usuario) getIntent().getExtras().getSerializable(getString(R.string.key_userLogged));
-
+        getSuggestion(user);
     }
 
     public void getSuggestion(Usuario user) {
@@ -78,14 +78,14 @@ public class AddRelationships extends AppCompatActivity {
         volleySuggestion.getUsuarioVolley();
     }
 
-    /**
-     * transformar el json usuario a un Usuario
-     * @param response
-     */
-    public Usuario getUserFromResponse(String response) {
-        gson = new GsonBuilder().create();
-        return gson.fromJson(response, Usuario.class);
-    }
+//    /**
+//     * transformar el json usuario a un Usuario
+//     * @param response
+//     */
+//    public void  getUserFromResponse(String response) {
+//        gson = new GsonBuilder().create();
+//        this.suggestion=gson.fromJson(response, Sugerencias.class);
+//    }
 
     /**
      * transformar el json sugerencias a el objeto Sugerencias

@@ -46,8 +46,8 @@ public class PeticionVolleySuggestion {
                             //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                             // activity = (Groups) context;
                             //activity.cargarJson(response.toString());
-                            AddRelationships activi = (AddRelationships) context;
-                            activi.getSuggestionFromResponse(response.toString());
+                            AddRelationships activity = (AddRelationships) context;
+                            activity.getSuggestionFromResponse(response.toString());
                             Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
                                     .show();
                         }

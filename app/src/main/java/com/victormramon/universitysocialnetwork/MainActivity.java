@@ -132,11 +132,11 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
-        } else if (id == R.id.nav_new_group) {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+            Intent intent = new Intent(getApplicationContext(),AddRelationships.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
-        }
+        } 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -28,12 +28,7 @@
             <item
                 android:id="@+id/nav_new_friend"
                 android:icon="@drawable/new_friend"
-                android:title="Nuevo Amigo" />
-
-            <item
-                android:id="@+id/nav_new_group"
-                android:icon="@drawable/new_group"
-                android:title="Nuevo Grupo" />
+                android:title="Nuevo Amigo/Grupo" />
 
 
         </menu>
