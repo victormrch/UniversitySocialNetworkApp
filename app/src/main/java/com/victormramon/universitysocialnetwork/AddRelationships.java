@@ -1,5 +1,7 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +16,7 @@ import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
-import com.victormramon.universitysocialnetwork.peticionvolley.newfriendsuggested.PeticionVolleyFriendSuggested;
+import com.victormramon.universitysocialnetwork.peticionvolley.newfriendsuggested.PeticionVolleyFriend;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
 public class AddRelationships extends AppCompatActivity  implements CallbackFriend {
@@ -117,10 +118,16 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
             //si es null, es que va a seguir a un usuario buscado por email
             newFriend.setEmail(friendSuggestedClicked.getEmail());
         }
-        PeticionVolleyFriendSuggested volley =
-                new PeticionVolleyFriendSuggested(this, user, newFriend);
+        PeticionVolleyFriend volley =
+                new PeticionVolleyFriend(this, user, newFriend);
         volley.doPostRequestToSave();
 
         Toast.makeText(this, "petición realizada, espera si entra en error Listener", Toast.LENGTH_LONG).show();
+    }
+
+    public void backToMenu() {
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK);
+        finish();
     }
 }

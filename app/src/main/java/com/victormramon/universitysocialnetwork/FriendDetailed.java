@@ -1,5 +1,7 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -36,8 +38,9 @@ public class FriendDetailed extends AppCompatActivity {
         tvEmail.setText(friendSelected.getEmail());
 
         findViewById(R.id.tvTitleLastComment).setVisibility(View.GONE);
-        findViewById(R.id.btnNewPubliMain).setVisibility(View.GONE);
+
         chargeRV(friendSelected);
+        unfollowFriend();
     }
 
     private void chargeRV(Usuario friend) {
@@ -62,14 +65,21 @@ public class FriendDetailed extends AppCompatActivity {
     }
 
     private void unfollowFriend() {
-        Button btnUnfollow = findViewById(R.id.btnAmigos);
+        Button btnUnfollow = findViewById(R.id.btnNewPubliMain);
         btnUnfollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PeticionVolleyUnfollowFriend volley =
                         new PeticionVolleyUnfollowFriend(FriendDetailed.this, userLogged, friendSelected);
                 volley.doDeleteFriendRequest();
+
             }
         });
+    }
+
+    public void backToMenu() {
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK);
+        finish();
     }
 }

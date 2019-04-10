@@ -11,6 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.victormramon.universitysocialnetwork.AddRelationships;
+import com.victormramon.universitysocialnetwork.FriendDetailed;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -40,15 +41,16 @@ public class PeticionVolleyUnfollowFriend {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest jsonObjectRequest =
-                new JsonObjectRequest(Request.Method.DELETE, url, infoPackage,
+                new JsonObjectRequest(Request.Method.POST, url, infoPackage,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
 
                                 //utilizamos esto para el método que construye el intent result
-                                //AddRelationships activity = (AddRelationships) context;
+                                FriendDetailed activity = (FriendDetailed) context;
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
+                                activity.backToMenu();
                                 //activity.onSavePostServerResult();
                                 //activity.cargarJson(response.toString());
 
