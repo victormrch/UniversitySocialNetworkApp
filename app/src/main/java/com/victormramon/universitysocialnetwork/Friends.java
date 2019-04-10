@@ -64,6 +64,7 @@ public class Friends extends AppCompatActivity implements Callback {
         Bundle bundle = new Bundle();
         Usuario friend = (Usuario) item;
         bundle.putSerializable(getString(R.string.key_friendSelected), friend);
+        bundle.putSerializable(getString(R.string.key_userLogged), this.user);
         Intent intent = new Intent(this, FriendDetailed.class);
         intent.putExtras(bundle);
         startActivity(intent);
