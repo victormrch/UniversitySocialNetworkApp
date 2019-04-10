@@ -51,7 +51,7 @@
         android:text="@string/groups_suggested"
         android:layout_marginTop="30dp"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimaryDark" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvSuggested"
