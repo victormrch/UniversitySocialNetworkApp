@@ -72,7 +72,7 @@ public class Groups extends AppCompatActivity implements Callback {
     }
 
     private void preparedAddGroupBtn() {
-        FloatingActionButton btnAddFriend = findViewById(R.id.floatingFollowFriends);
+        FloatingActionButton btnAddFriend = findViewById(R.id.floatingFollowGroups);
         btnAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

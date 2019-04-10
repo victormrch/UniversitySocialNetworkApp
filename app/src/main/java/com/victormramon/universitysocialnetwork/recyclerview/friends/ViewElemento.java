@@ -36,16 +36,16 @@ public class ViewElemento extends RecyclerView.ViewHolder {
 
 
     public void setUpHolder(Object item) {
-
+        //comrpobar que estamos pasando (ya que estamos reutilizando el recycler view
         if (item instanceof Usuario) {
             //para manejarlo en el onItemClickListener como parametro
             this.item = (Usuario) item;
             Usuario friend = (Usuario) item;
             String completeName = friend.getNombre() + " " + friend.getApellidos();
             tvNombre.setText(completeName);
+            //evitamos mostrar los post si está vacío
             if (!friend.getPostList().isEmpty()) {
                 int lastPosition = (friend.getPostList().size()) - 1;
-
                 tvFriendPost.setText(friend.getPostList().get(lastPosition).getContenido());
             } else {
                 tvFriendPost.setText("No hay comentario");

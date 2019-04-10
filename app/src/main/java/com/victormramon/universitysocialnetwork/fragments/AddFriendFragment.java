@@ -15,7 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.victormramon.universitysocialnetwork.R;
-import com.victormramon.universitysocialnetwork.callback.CallbackFriend;
+import com.victormramon.universitysocialnetwork.callback.CallbackRelationship;
+import com.victormramon.universitysocialnetwork.callback.CallbackRelationship;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.recyclerview.suggestions.SuggestionRecyclerAdapter;
@@ -24,7 +25,7 @@ public class AddFriendFragment extends Fragment {
 
     private Sugerencias suggestion;
     private Activity activ;
-    private static CallbackFriend callback;
+    private static CallbackRelationship callback;
 
 
     @Override
@@ -38,7 +39,7 @@ public class AddFriendFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        callback = (CallbackFriend) context;
+        callback = (CallbackRelationship) context;
     }
 
     /**
