@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity
         this.tvName = (TextView) findViewById(R.id.tvName);
         this.tvSurname = (TextView) findViewById(R.id.tvSurname);
         this.tvEmail = (TextView) findViewById(R.id.tvEmail);
+
+        findViewById(R.id.btnNewPubliMain).setVisibility(View.GONE);
 
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));

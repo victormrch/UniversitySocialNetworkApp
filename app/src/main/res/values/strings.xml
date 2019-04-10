@@ -6,6 +6,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <!-- String para el menu principal -->
+    <string name="unfollow_friends">DEJAR DE SEGUIRS</string>
+    <string name="last_comment_my_group">Mis últimos Comentarios en Grupos</string>
+    <string name="my_last_post">Mis últimas Publicaciones</string>
+
     <!-- String para el menu de la cabecera (3 puntos) -->
     <string name="action_settings">Settings</string>
     <string name="action_profile">Mi Perfil</string>
@@ -19,7 +24,7 @@
 
     <!-- String para la Pantalla Amigos -->
     <string name="my_friends">MIS AMIGOS</string>
-    <string name="news_friends">AÑADIR NUEVO AMIGO</string>
+    <string name="news_friends">Añadir nuevo amigo</string>
 
     <!-- String para la Pantalla Grupos -->
     <string name="my_groups">MIS GRUPOS</string>
