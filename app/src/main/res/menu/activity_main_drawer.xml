@@ -26,13 +26,19 @@
                 android:icon="@drawable/new_post"
                 android:title="Nueva Publicación" />
             <item
-                android:id="@+id/nav_new_friend"
-                android:icon="@drawable/new_friend"
-                android:title="Nuevo Amigo/Grupo" />
+            android:id="@+id/nav_new_friend"
+            android:icon="@drawable/new_friend"
+            android:title="Nuevo Amigo/Grupo" />
 
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Salir del Safari" />
 
         </menu>
     </item>
+    
+
 
 </menu>
 

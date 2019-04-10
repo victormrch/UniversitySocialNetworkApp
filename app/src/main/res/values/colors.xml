@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FC3955</color>
-    <color name="colorPrimaryDark">#495057</color>
+    <color name="colorPrimary">#ffaaac</color>
+    <color name="colorPrimaryDark">#5e4533</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorFondoIcono">#FFFFFF</color>
     <color name="colorBotonDejarSeguir">#007BFF</color>
