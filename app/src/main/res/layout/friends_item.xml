@@ -18,7 +18,7 @@
         android:layout_below="@id/imgFriend"
         android:gravity="center"
         android:text="Silvana"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imgFriend"
         android:text="Su Último Comentario"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold" />
 
     <TextView

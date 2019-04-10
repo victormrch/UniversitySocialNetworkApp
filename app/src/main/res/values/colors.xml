@@ -6,6 +6,7 @@
     <color name="colorFondoIcono">#FFFFFF</color>
     <color name="colorBotonDejarSeguir">#007BFF</color>
     <color name="colorFondo">#fffbef</color>
+    <color name="colorFondoRed">#f0e7de</color>
 
 
     <!-- Colores para la pantalla del login y registro -->
