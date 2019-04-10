@@ -44,35 +44,6 @@
         android:layout_marginLeft="10dp"
         android:textColor="@color/colorPrimaryDark" />
 
-    <LinearLayout
-        android:id="@+id/lLNewPublication"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvCommentGroupDetail"
-        android:layout_marginBottom="10dp">
-
-        <TextView
-            android:id="@+id/tvGroupComment"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:text="Últimos Comentarios del Grupo" />
-
-        <TextView
-            android:id="@+id/tvDateComment"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tvGroupComment"
-            android:text="Fecha" />
-
-        <TextView
-            android:id="@+id/tvUserComment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tvDateComment"
-            android:text="Usuario" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/tvCommentGroupDetail"
         android:layout_width="match_parent"
@@ -86,7 +57,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/lLNewPublication">
+        android:layout_below="@id/tvCommentGroupDetail">
 
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

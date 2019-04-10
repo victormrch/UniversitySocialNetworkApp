@@ -1,7 +1,9 @@
 package com.victormramon.universitysocialnetwork;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -141,12 +143,14 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent, 1);
 
         } else if (id == R.id.nav_logout){
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.key_sharedPref), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.commit();
 
             Intent intent = new Intent(getApplicationContext(), SplashLogout.class);
-            intent.putExtras(bundle);
             startActivity(intent);
+            finish();
 
         }
 

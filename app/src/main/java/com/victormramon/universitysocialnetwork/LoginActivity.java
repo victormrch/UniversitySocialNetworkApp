@@ -36,6 +36,13 @@ public class LoginActivity extends AppCompatActivity {
 
         gson = new GsonBuilder().create();
 
+        prepareView();
+    }
+
+    /**
+     * recogemos los valores de los editText y gestionamos los eventos de los botones
+     */
+    private void prepareView() {
         etUsuario = findViewById(R.id.etUsuario);
         etContraseña = findViewById(R.id.etContraseña);
         //progressBar = findViewById(R.id.progressBar);
@@ -47,14 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario usuario = new Usuario();
-                usuario.setEmail(etUsuario.getText().toString());
-                usuario.setPassword(etContraseña.getText().toString());
-
-                PeticionVolley get = new PeticionVolley(LoginActivity.this, usuario);
-                get.getUsuarioVolley();
-
-
+                sendUserTryToServer();
 
                 //Ocultar progressBar
                 findViewById(R.id.progressBar).setVisibility(View.GONE);
@@ -71,12 +71,26 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void cargarSiguienteActivity(Usuario usuario) {
+    /**
+     * construye el usuario con los editText y lo manda a peticion volley para intentar
+     * ver si esta en la base de datos
+     */
+    private void sendUserTryToServer() {
+        Usuario usuario = new Usuario();
+        usuario.setEmail(etUsuario.getText().toString());
+        usuario.setPassword(etContraseña.getText().toString());
 
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(getString(R.string.key_emailUserLogged), usuario.getEmail());
-        editor.putString(getString(R.string.key_passwordUserLogged), usuario.getEmail());
-        editor.commit();
+        PeticionVolley get = new PeticionVolley(LoginActivity.this, usuario);
+        get.getUsuarioVolley();
+    }
+
+    /**
+     * comprueba las sharedPreferences e introduce el usuario recibido de la petición al servidor
+     * en el bundle para mandarlo a la siguiente activity
+     * @param usuario usuario registrado
+     */
+    public void cargarSiguienteActivity(Usuario usuario) {
+        saveUserInSharedPref(usuario);
         //Recuperar como objeto
         args = new Bundle();
         args.putSerializable(getString(R.string.key_userLogged), usuario);
@@ -86,12 +100,29 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * comprueba si el usuario se ha registrado antes y está en las sharedPreferences
+     */
     private void checkSharedPreferences() {
         String email = prefs.getString(getString(R.string.key_emailUserLogged), null);
         if (email != null) {
             String password = prefs.getString(getString(R.string.key_passwordUserLogged), null);
             etUsuario.setText(email);
             etContraseña.setText(password);
+        }
+    }
+
+    /**
+     * comprueba si están las preferences y si no están las guarda
+     * @param usuario
+     */
+    private void saveUserInSharedPref(Usuario usuario) {
+        String email = prefs.getString(getString(R.string.key_emailUserLogged), null);
+        if (email == null) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(getString(R.string.key_emailUserLogged), usuario.getEmail());
+            editor.putString(getString(R.string.key_passwordUserLogged), usuario.getPassword());
+            editor.commit();
         }
     }
 }

@@ -19,9 +19,9 @@ public class ViewElemento extends RecyclerView.ViewHolder {
 
     public ViewElemento(@NonNull final View itemView) {
         super(itemView);
-        this.tvContent = itemView.findViewById(R.id.tvGroupComment);
-        this.tvDate = itemView.findViewById(R.id.tvDateComment);
-        this.tvPublisher = itemView.findViewById(R.id.tvUserComment);
+        this.tvContent = itemView.findViewById(R.id.tvCommentContent);
+        this.tvDate = itemView.findViewById(R.id.tvCommentDate);
+        this.tvPublisher = itemView.findViewById(R.id.tvCommentAuthor);
 
     }
 
@@ -31,7 +31,7 @@ public class ViewElemento extends RecyclerView.ViewHolder {
         SimpleDateFormat sdt = new SimpleDateFormat("dd-MM-YYYY");
         tvDate.setText(sdt.format(item.getFecha()));
 
-        // tvPublisher.setText(item.getIdAutor().getEmail());
+        tvPublisher.setText(item.getIdAutor().getEmail());
 
     }
 }

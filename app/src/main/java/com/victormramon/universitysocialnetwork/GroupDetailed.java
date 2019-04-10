@@ -36,7 +36,7 @@ public class GroupDetailed extends AppCompatActivity {
 
     private void chargeRv() {
         GroupDetailedCommentRecyclerAdapter rvAdapter = new GroupDetailedCommentRecyclerAdapter
-                (R.layout.item_new_publication, groupSelected.getComentarioGrupoList());
+                (R.layout.comment_group_detail_item, groupSelected.getComentarioGrupoList());
         RecyclerView recView = findViewById(R.id.rvGroupsComment);
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
