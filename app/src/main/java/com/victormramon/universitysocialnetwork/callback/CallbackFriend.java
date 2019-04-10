@@ -1,6 +1,8 @@
 package com.victormramon.universitysocialnetwork.callback;
 
+import com.victormramon.universitysocialnetwork.modelos.Usuario;
+
 public interface CallbackFriend {
 
-    public void onFriendClick(Object item);
+    public void onFriendClick(Usuario item);
 }

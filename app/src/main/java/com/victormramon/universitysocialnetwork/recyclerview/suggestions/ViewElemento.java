@@ -3,9 +3,11 @@ package com.victormramon.universitysocialnetwork.recyclerview.suggestions;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -13,20 +15,36 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 public class ViewElemento extends RecyclerView.ViewHolder {
 
     private TextView tvNombre;
+    private Button btnFollow;
+    private Usuario userClicked;
+    private Grupos groupClicked;
 
     public ViewElemento(@NonNull View itemView) {
         super(itemView);
         tvNombre = itemView.findViewById(R.id.tvNameSuggested);
+        btnFollow = itemView.findViewById(R.id.btnFollow);
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (userClicked != null) {
+                    AddFriendFragment.onFriendClickListener(userClicked);
+
+                } else if (groupClicked != null) {
+
+                }
+            }
+        });
 
     }
 
     public void setUpHolder(Object item) {
         if (item instanceof Usuario) {
-            Usuario user = (Usuario) item;
-            tvNombre.setText(user.getNombre());
+
+            userClicked = (Usuario) item;
+            tvNombre.setText(userClicked.getNombre());
         } else {
-            Grupos group = (Grupos) item;
-            tvNombre.setText(group.getNombre());
+            groupClicked = (Grupos) item;
+            tvNombre.setText(groupClicked.getNombre());
         }
     }
 }

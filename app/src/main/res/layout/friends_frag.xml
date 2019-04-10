@@ -14,16 +14,18 @@
 
         <EditText
             android:id="@+id/etSearchFriends"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Buscar y Seguir a nuevo amigo" />
 
         <Button
+            android:id="@+id/btnSendFriendEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/etSearchFriends"
+            android:layout_below="@id/etSearchFriends"
+            android:layout_centerHorizontal="true"
             android:text="Buscar"
             android:background="@color/colorPrimary"
             android:textColor="@color/colorFondoIcono" />
