@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         chargeTextView(usuario);
-        if (usuario.getComentarioGrupoList() != null){
+        if (usuario.getComentarioGrupoList() != null) {
             chargeComment(usuario);
         }
 
@@ -93,9 +92,28 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_profile) {
-            return true;
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+
+        }else if (id == R.id.action_friends) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Friends.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+        }else if (id == R.id.action_groups) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Groups.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -107,7 +125,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            // Handle the camera action
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+
         } else if (id == R.id.nav_friends) {
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
@@ -141,83 +165,83 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent, 1);
 
         }
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+        @Override
+        protected void onActivityResult ( int requestCode, int resultCode, @Nullable Intent data){
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            if (requestCode == 1) {
+                if (resultCode == Activity.RESULT_OK) {
+                    //pedir el usuario logeado de nuevo para recibir los cambios
+                    PeticionVolley volley = new PeticionVolley(this, usuario);
+                    volley.getUsuarioVolley();
 
-        if (requestCode == 1) {
-            if (resultCode == Activity.RESULT_OK) {
-                //pedir el usuario logeado de nuevo para recibir los cambios
-                PeticionVolley volley = new PeticionVolley(this, usuario);
-                volley.getUsuarioVolley();
-
+                }
             }
         }
-    }
 
-    /**
-     * recoge el usuario del servidor con los cambios realizados (post añadidos o borrados(aun sin hacer))
-     * y pinta d enuevo los recycler view
-     *
-     * @param user
-     */
-    public void getUserRefreshed(Usuario user) {
-        this.usuario = user;
-        chargePost(this.usuario);
-        chargeComment(this.usuario);
-    }
+        /**
+         * recoge el usuario del servidor con los cambios realizados (post añadidos o borrados(aun sin hacer))
+         * y pinta d enuevo los recycler view
+         *
+         * @param user
+         */
+        public void getUserRefreshed (Usuario user){
+            this.usuario = user;
+            chargePost(this.usuario);
+            chargeComment(this.usuario);
+        }
 
-    public void chargeTextView(Usuario userLogged) {
+        public void chargeTextView (Usuario userLogged){
 
-        tvName.setText(userLogged.getNombre());
-        tvSurname.setText(userLogged.getApellidos());
-        tvEmail.setText(userLogged.getEmail());
+            tvName.setText(userLogged.getNombre());
+            tvSurname.setText(userLogged.getApellidos());
+            tvEmail.setText(userLogged.getEmail());
 
-        if (userLogged.getPostList() != null){
+            if (userLogged.getPostList() != null) {
 
-            chargePost(userLogged);
+                chargePost(userLogged);
+            }
+
+
+        }
+
+        /**
+         * pinta los recycler view con los post del usuario
+         *
+         * @param userLogged
+         */
+        private void chargePost (Usuario userLogged){
+            PostRecyclerAdapter recAdapter =
+                    new PostRecyclerAdapter(R.layout.item_post, userLogged.getPostList());
+
+            RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
+
+            recView.setHasFixedSize(true);
+            recView.setLayoutManager(new LinearLayoutManager(this));
+            recView.setAdapter(recAdapter);
+        }
+
+        /**
+         * pinta los recycler view con los comentarios
+         *
+         * @param userLogged
+         */
+        public void chargeComment (Usuario userLogged){
+
+            CommentRecyclerAdapter recAdapter =
+                    new CommentRecyclerAdapter(R.layout.comment_item, userLogged.getComentarioGrupoList());
+
+            RecyclerView recView = (RecyclerView) findViewById(R.id.rvLastComment);
+
+            recView.setHasFixedSize(true);
+            recView.setLayoutManager(new LinearLayoutManager(this));
+            recView.setAdapter(recAdapter);
+
         }
 
 
-
     }
-
-    /**
-     * pinta los recycler view con los post del usuario
-     *
-     * @param userLogged
-     */
-    private void chargePost(Usuario userLogged) {
-        PostRecyclerAdapter recAdapter =
-                new PostRecyclerAdapter(R.layout.item_post, userLogged.getPostList());
-
-        RecyclerView recView = (RecyclerView) findViewById(R.id.rvUltimosPost);
-
-        recView.setHasFixedSize(true);
-        recView.setLayoutManager(new LinearLayoutManager(this));
-        recView.setAdapter(recAdapter);
-    }
-
-    /**
-     * pinta los recycler view con los comentarios
-     *
-     * @param userLogged
-     */
-    public void chargeComment(Usuario userLogged) {
-
-        CommentRecyclerAdapter recAdapter =
-                new CommentRecyclerAdapter(R.layout.comment_item, userLogged.getComentarioGrupoList());
-
-        RecyclerView recView = (RecyclerView) findViewById(R.id.rvLastComment);
-
-        recView.setHasFixedSize(true);
-        recView.setLayoutManager(new LinearLayoutManager(this));
-        recView.setAdapter(recAdapter);
-
-    }
-}
