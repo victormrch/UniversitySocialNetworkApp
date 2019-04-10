@@ -1,7 +1,9 @@
 package com.victormramon.universitysocialnetwork;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -59,7 +61,6 @@ public class MainActivity extends AppCompatActivity
         this.tvEmail = (TextView) findViewById(R.id.tvEmail);
 
         findViewById(R.id.btnNewPubliMain).setVisibility(View.GONE);
-
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         chargeTextView(usuario);
@@ -140,6 +141,10 @@ public class MainActivity extends AppCompatActivity
             intent.putExtras(bundle);
             startActivityForResult(intent, 1);
 
+        } else if (id == R.id.nav_logout) {
+            //borrar las preferences
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.key_sharedPref), Context.MODE_PRIVATE);
+            prefs.edit().clear();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

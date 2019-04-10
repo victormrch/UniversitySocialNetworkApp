@@ -67,7 +67,7 @@ public class AddPublicationActivity extends AppCompatActivity implements Callbac
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         t.replace(R.id.flNewPublication, fragmentToCharge);
-        t.addToBackStack(null);
+        t.disallowAddToBackStack();
         t.commit();
     }
 

@@ -1,6 +1,8 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,20 +25,24 @@ public class LoginActivity extends AppCompatActivity {
     private Bundle args;
     private ProgressBar progressBar;
     private Gson gson;
+    private SharedPreferences prefs;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
+        prefs = getSharedPreferences(getString(R.string.key_sharedPref), Context.MODE_PRIVATE);
 
         gson = new GsonBuilder().create();
 
         etUsuario = findViewById(R.id.etUsuario);
         etContraseña = findViewById(R.id.etContraseña);
-        progressBar = findViewById(R.id.progressBar);
+        //progressBar = findViewById(R.id.progressBar);
         btn = findViewById(R.id.btnSession);
         tvBoton = findViewById(R.id.btnRegistro);
+
+        checkSharedPreferences();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,8 +54,10 @@ public class LoginActivity extends AppCompatActivity {
                 PeticionVolley get = new PeticionVolley(LoginActivity.this, usuario);
                 get.getUsuarioVolley();
 
+
+
                 //Ocultar progressBar
-                progressBar.setVisibility(View.GONE);
+                findViewById(R.id.progressBar).setVisibility(View.GONE);
 
             }
         });
@@ -64,6 +72,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void cargarSiguienteActivity(Usuario usuario) {
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(getString(R.string.key_emailUserLogged), usuario.getEmail());
+        editor.putString(getString(R.string.key_passwordUserLogged), usuario.getEmail());
+        editor.commit();
         //Recuperar como objeto
         args = new Bundle();
         args.putSerializable(getString(R.string.key_userLogged), usuario);
@@ -73,4 +86,12 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void checkSharedPreferences() {
+        String email = prefs.getString(getString(R.string.key_emailUserLogged), null);
+        if (email != null) {
+            String password = prefs.getString(getString(R.string.key_passwordUserLogged), null);
+            etUsuario.setText(email);
+            etContraseña.setText(password);
+        }
+    }
 }
