@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,27 +12,36 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="@dimen/margen_texto_principal_groups"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:text="@string/my_groups"
         android:textColor="@color/colorFondoIcono"
         android:textSize="@dimen/tamano_txt_principal_groups"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvGroups"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvGroups"
+        tools:layout_editor_absoluteX="0dp"></android.support.v7.widget.RecyclerView>
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingFollowFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/margen_boton"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/relleno_boton"
-        android:text="@string/btn_news_groups"
-        android:textColor="@color/colorPrimaryDark" />
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/rvGroups"
+        app:layout_constraintTop_toBottomOf="@+id/rvGroups"
+        app:rippleColor="@color/colorPrimaryDark"
+        app:srcCompat="@drawable/btn_group"
+        tools:ignore="MissingConstraints" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
