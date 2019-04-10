@@ -40,6 +40,7 @@ public class AddRelationships extends AppCompatActivity  implements CallbackRela
         btnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.l_parent_relationship).setBackgroundColor(getResources().getColor(R.color.colorFondoIcono));
                 AddFriendFragment fragmentToCharge = new AddFriendFragment();
                 fragmentToCharge.setArguments(generateBundle(suggestion));
                 FragmentTransaction t = getSupportFragmentManager().beginTransaction();
@@ -54,6 +55,7 @@ public class AddRelationships extends AppCompatActivity  implements CallbackRela
         btnGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.l_parent_relationship).setBackgroundColor(getResources().getColor(R.color.colorFondoIcono));
                 AddGroupFragment fragmentToCharge = new AddGroupFragment();
                 fragmentToCharge.setArguments(generateBundle(suggestion));
                 FragmentTransaction t = getSupportFragmentManager().beginTransaction();
