@@ -30,7 +30,7 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/imgGroups"
         android:text="Último Comentario del Grupo"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold" />
 
     <TextView

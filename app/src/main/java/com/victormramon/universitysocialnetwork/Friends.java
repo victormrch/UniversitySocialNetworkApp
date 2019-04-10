@@ -81,15 +81,12 @@ public class Friends extends AppCompatActivity implements Callback {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
-            backToMenu();
+            Intent intent = new Intent();
+            setResult(Activity.RESULT_OK);
+            finish();
         }
     }
 
-    public void backToMenu() {
-        Intent intent = new Intent();
-        setResult(Activity.RESULT_OK);
-        finish();
-    }
 
     private void preparedAddFriendBtn() {
         FloatingActionButton btnAddFriend = findViewById(R.id.floatingFollowFriends);

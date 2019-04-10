@@ -11,15 +11,17 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.victormramon.universitysocialnetwork.callback.CallbackFriend;
+import com.victormramon.universitysocialnetwork.callback.CallbackRelationship;
 import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
+import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
+import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyCreateGroups;
 import com.victormramon.universitysocialnetwork.peticionvolley.newfriendsuggested.PeticionVolleyFriend;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
-public class AddRelationships extends AppCompatActivity  implements CallbackFriend {
+public class AddRelationships extends AppCompatActivity  implements CallbackRelationship {
 
     private Gson gson;
     private Usuario user;
@@ -38,12 +40,13 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
         btnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.l_parent_relationship).setBackgroundColor(getResources().getColor(R.color.colorFondoIcono));
                 AddFriendFragment fragmentToCharge = new AddFriendFragment();
                 fragmentToCharge.setArguments(generateBundle(suggestion));
                 FragmentTransaction t = getSupportFragmentManager().beginTransaction();
                 t.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 t.replace(R.id.flPlaceToFragment, fragmentToCharge);
-                t.addToBackStack(null);
+                t.disallowAddToBackStack();
                 t.commit();
             }
         });
@@ -52,12 +55,13 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
         btnGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.l_parent_relationship).setBackgroundColor(getResources().getColor(R.color.colorFondoIcono));
                 AddGroupFragment fragmentToCharge = new AddGroupFragment();
                 fragmentToCharge.setArguments(generateBundle(suggestion));
                 FragmentTransaction t = getSupportFragmentManager().beginTransaction();
                 t.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 t.replace(R.id.flPlaceToFragment, fragmentToCharge);
-                t.addToBackStack(null);
+                t.disallowAddToBackStack();
                 t.commit();
             }
         });
@@ -123,6 +127,21 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
         volley.doPostRequestToSave();
 
         Toast.makeText(this, "petición realizada, espera si entra en error Listener", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onGroupClick(Grupos item) {
+        Grupos newGroup = new Grupos();
+
+        if (item.getIdGrupo() != null) {
+            newGroup.setIdGrupo(item.getIdGrupo());
+        } else {
+            newGroup.setNombre(item.getNombre());
+        }
+        PeticionVolleyCreateGroups volley = new PeticionVolleyCreateGroups(this, newGroup, user);
+        volley.doPostRequestToSave();
+
+
     }
 
     public void backToMenu() {
