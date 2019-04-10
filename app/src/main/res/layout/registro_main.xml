@@ -141,7 +141,7 @@
             android:text="@string/tvVolver"
             android:textColor="@color/Boton"
             android:textSize="@dimen/login2" />
-        <!--android:layout_toRightOf="@id/btnImagen"-->
+
 
 
         <ProgressBar

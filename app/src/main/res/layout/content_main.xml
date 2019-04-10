@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_last_post"
-        android:text="Mis últimas Publicaciones"
+        android:text="@string/my_last_post"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/tamano_last_post" />
 
@@ -104,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_last_comment"
-        android:text="Mis últimos Comentarios en Grupos"
+        android:text="@string/last_comment_my_group"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/tamano_last_comment" />
 
@@ -129,7 +129,7 @@
             android:layout_margin="@dimen/margen_boton"
             android:background="@color/colorPrimary"
             android:padding="@dimen/relleno_boton"
-            android:text="Nueva Publicación"
+            android:text="@string/unfollow_friends"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
