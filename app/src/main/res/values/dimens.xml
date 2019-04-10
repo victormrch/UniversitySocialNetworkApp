@@ -44,7 +44,7 @@
 
     <!-- Dimensiones y margenes Pantalla Login-Registro-->
     <dimen name="login">22sp</dimen>
-    <dimen name="registro">10sp</dimen>
+    <dimen name="registro">15sp</dimen>
     <dimen name="login2">15sp</dimen>
 
     <!-- Dimensiones y margenes Pantalla Nuevas Publicaciones-->

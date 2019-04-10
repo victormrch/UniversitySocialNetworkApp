@@ -9,7 +9,7 @@
 
     <!-- Colores para la pantalla del login y registro -->
     <color name="Boton">#F9A825</color>
-    <color name="Fondo">#631D0202</color>
+    <color name="Fondo">#1EFFFDFD</color>
     <color name="letra">#FFFFFF</color>
 
 </resources>

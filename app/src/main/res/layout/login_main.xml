@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/people2">
+    android:background="@drawable/jirafa"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -94,7 +95,6 @@
             android:text="@string/no_tienes_cuenta_todav_a"
             android:textColor="@color/letra"
             android:textSize="@dimen/login2" />
-        <!--android:padding="20dp"-->
 
         <TextView
             android:id="@+id/btnRegistro"
@@ -108,8 +108,8 @@
             android:textColor="@color/Boton"
             android:textSize="@dimen/login2" />
 
-
     </RelativeLayout>
+
 
 </LinearLayout>
 
