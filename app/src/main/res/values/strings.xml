@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <!-- String para el menu principal -->
-    <string name="unfollow_friends">DEJAR DE SEGUIRS</string>
+    <string name="unfollow_friends">DEJAR DE SEGUIR</string>
     <string name="last_comment_my_group">Mis últimos Comentarios en Grupos</string>
     <string name="my_last_post">Mis últimas Publicaciones</string>
 
