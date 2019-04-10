@@ -60,7 +60,10 @@ public class MainActivity extends AppCompatActivity
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         chargeTextView(usuario);
-        chargeComment(usuario);
+        if (!usuario.getPostList().isEmpty()){
+            chargeComment(usuario);
+        }
+
     }
 
     @Override
@@ -171,7 +174,12 @@ public class MainActivity extends AppCompatActivity
         tvSurname.setText(userLogged.getApellidos());
         tvEmail.setText(userLogged.getEmail());
 
-        chargePost(userLogged);
+        if (!userLogged.getPostList().isEmpty()){
+
+            chargePost(userLogged);
+        }
+
+
 
     }
 

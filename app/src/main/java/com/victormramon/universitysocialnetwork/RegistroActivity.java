@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
+import com.victormramon.universitysocialnetwork.peticionvolley.RegistroPeticionVolley;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -21,8 +21,7 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText etNombre;
     private EditText etTelefono;
     private EditText etContraseña;
-    // private EditText etContraseña2;
-    // private Button btni;
+    private EditText etContraseña2;
     private Button btnr;
     private TextView tvVolver;
     private ProgressBar progressBar;
@@ -40,27 +39,32 @@ public class RegistroActivity extends AppCompatActivity {
         etNombre = findViewById(R.id.etNombre);
         etTelefono = findViewById(R.id.etTelefono);
         etContraseña = findViewById(R.id.etContraseña);
-        // etContraseña2 = findViewById(R.id.etContraseña2);
-        // btni = findViewById(R.id.btnImagen);
+        etContraseña2 = findViewById(R.id.etContraseña2);
+        progressBar = findViewById(R.id.progressBar);
         btnr = findViewById(R.id.btnRegistro);
         tvVolver = findViewById(R.id.tvVolver);
 
         btnr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario usuario = new Usuario();
-                usuario.setEmail(etEmail.getText().toString());
-                usuario.setApellidos(etApellidos.getText().toString());
-                usuario.setNombre(etNombre.getText().toString());
-                usuario.setTelefono(etTelefono.getText().toString());
-                usuario.setPassword(etContraseña.getText().toString());
-                //usuario.setPassword(etContraseña2.getText().toString());
-                //if(etContraseña = etContraseña2){
-                PeticionVolley get = new PeticionVolley(RegistroActivity.this, usuario);
-                get.getUsuarioVolley();//}
+                String password1 = etContraseña.getText().toString();
+                String password2 = etContraseña2.getText().toString();
+                if (password1.equals(password2)) {
+                    Usuario usuario = new Usuario();
+                    usuario.setEmail(etEmail.getText().toString());
+                    usuario.setApellidos(etApellidos.getText().toString());
+                    usuario.setNombre(etNombre.getText().toString());
+                    usuario.setTelefono(etTelefono.getText().toString());
+                    usuario.setPassword(etContraseña.getText().toString());
+
+                    RegistroPeticionVolley get = new RegistroPeticionVolley(RegistroActivity.this, usuario);
+                    get.getUsuarioVolley();
+                    volverActivity(usuario);
+                }
 
                 //Ocultar progressBar
                 progressBar.setVisibility(View.GONE);
+
 
             }
         });
@@ -77,11 +81,12 @@ public class RegistroActivity extends AppCompatActivity {
     public void volverActivity(Usuario usuario) {
         //Recuperar como objeto
         args = new Bundle();
-        args.putSerializable("usuario", usuario);
+        args.putSerializable(getString(R.string.key_userLogged), usuario);
         //Iniciar activityMain pasando los argumentos
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.putExtras(args);
         startActivity(intent);
+        finish();
     }
 
 }
