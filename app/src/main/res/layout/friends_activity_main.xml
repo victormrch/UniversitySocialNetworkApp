@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,40 +9,33 @@
         android:id="@+id/tvFriends"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/my_friends"
-        android:textSize="@dimen/tamano_txt_principal_friends"
         android:layout_marginBottom="@dimen/margen_texto_principal"
-        android:textColor="@color/colorFondoIcono"
-        android:textStyle="bold"
+        android:background="@color/colorPrimary"
         android:gravity="center"
-        android:background="@color/colorPrimary" />
+        android:text="@string/my_friends"
+        android:textColor="@color/colorFondoIcono"
+        android:textSize="@dimen/tamano_txt_principal_friends"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvFriends"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="124dp">
     </android.support.v7.widget.RecyclerView>
 
-    <android.support.constraint.ConstraintLayout
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingFollowFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingFollowFriends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:backgroundTint="@color/colorPrimary"
-            app:srcCompat="@drawable/new_usuario"
-            tools:layout_editor_absoluteX="329dp"
-            tools:layout_editor_absoluteY="316dp"
-            tools:ignore="MissingConstraints" />
-
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/new_usuario"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="594dp" />
     </android.support.constraint.ConstraintLayout>
-
-
-
-</LinearLayout>
