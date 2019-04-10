@@ -31,7 +31,7 @@ public class PeticionVolley {
     public PeticionVolley(Activity context, Usuario user) {
         this.context = context;
 
-        if (user.getId() == null) {
+        if (user.getId() == null && user.getNombre() == null) {
             userLogin = this.crearJsonObjectUsuario(user.getEmail(), user.getPassword());
         } else {
             toUpdate = true;

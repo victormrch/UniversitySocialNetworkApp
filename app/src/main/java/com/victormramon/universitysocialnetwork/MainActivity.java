@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         chargeTextView(usuario);
-        if (!usuario.getPostList().isEmpty()){
+        if (usuario.getComentarioGrupoList() != null){
             chargeComment(usuario);
         }
 
@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity
                 //pedir el usuario logeado de nuevo para recibir los cambios
                 PeticionVolley volley = new PeticionVolley(this, usuario);
                 volley.getUsuarioVolley();
+
             }
         }
     }
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity
         tvSurname.setText(userLogged.getApellidos());
         tvEmail.setText(userLogged.getEmail());
 
-        if (!userLogged.getPostList().isEmpty()){
+        if (userLogged.getPostList() != null){
 
             chargePost(userLogged);
         }

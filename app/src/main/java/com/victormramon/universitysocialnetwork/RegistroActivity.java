@@ -59,7 +59,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                     RegistroPeticionVolley get = new RegistroPeticionVolley(RegistroActivity.this, usuario);
                     get.getUsuarioVolley();
-                    volverActivity(usuario);
+                    //volverActivity(usuario);
                 }
 
                 //Ocultar progressBar
