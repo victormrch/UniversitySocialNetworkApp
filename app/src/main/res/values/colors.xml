@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorFondoIcono">#FFFFFF</color>
     <color name="colorBotonDejarSeguir">#007BFF</color>
+    <color name="colorFondo">#fffbef</color>
 
 
     <!-- Colores para la pantalla del login y registro -->

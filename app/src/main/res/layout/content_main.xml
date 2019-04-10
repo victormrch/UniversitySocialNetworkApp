@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margen_icono"
             android:background="@color/colorFondoIcono"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:src="@drawable/linkedin" />
 
         <ImageButton
