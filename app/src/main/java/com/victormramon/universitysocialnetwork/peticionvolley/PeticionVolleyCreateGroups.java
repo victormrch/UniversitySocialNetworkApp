@@ -9,6 +9,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.victormramon.universitysocialnetwork.AddRelationships;
 import com.victormramon.universitysocialnetwork.MainActivity;
@@ -41,6 +42,9 @@ public class PeticionVolleyCreateGroups {
     public void doPostRequestToSave() {
 
         RequestQueue queue = Volley.newRequestQueue(context);
+        
+
+
 
         JsonObjectRequest jsonObjectRequest =
                 new JsonObjectRequest(Request.Method.POST, url, grup,
@@ -56,6 +60,7 @@ public class PeticionVolleyCreateGroups {
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
                         Toast.makeText(context, "Ha ocurrido un error en la petición",
                                 Toast.LENGTH_LONG);
                     }

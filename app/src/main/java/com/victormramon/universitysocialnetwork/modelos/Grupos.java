@@ -24,7 +24,6 @@ public class Grupos implements Serializable {
 
     private List<ComentarioGrupo> comentarioGrupoList;
 
-
     private Integer groupSize;
 
     public Grupos() {

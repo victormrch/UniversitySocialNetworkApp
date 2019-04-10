@@ -129,7 +129,7 @@
             android:layout_margin="@dimen/margen_boton"
             android:background="@color/colorPrimary"
             android:padding="@dimen/relleno_boton"
-            android:text="Nuevo Comentario"
+            android:text="Nueva Publicación"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
