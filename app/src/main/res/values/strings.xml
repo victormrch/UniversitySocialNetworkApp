@@ -75,5 +75,9 @@
     <string name="key_friendSelected">friendSelected</string>
     <string name="key_groupSelected">groupSelected</string>
 
+    <string name="key_sharedPref">SharedPref</string>
+    <string name="key_emailUserLogged">spEmailUserLogged</string>
+    <string name="key_passwordUserLogged">spPasswordUserLogged</string>
+
 
 </resources>
