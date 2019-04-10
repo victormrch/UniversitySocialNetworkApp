@@ -54,16 +54,16 @@
     <string name="tvNewPublication">Añadir Nueva Publicación</string>
 
     <!-- Direcciones de api rest -->
-    <string name="ws_login">http://192.168.183.86:22175/RedSocial-war/api/redsocial/login</string>
-    <string name="ws_refeshUser">http://192.168.183.86:22175/RedSocial-war/api/redsocial/refreshuser</string>
-    <string name="ws_addFriend">http://192.168.183.86:22175/RedSocial-war/api/redsocial/addfriend</string>
-    <string name="ws_addFriendByEmail">http://192.168.183.86:22175/RedSocial-war/api/redsocial/addfriendemail</string>
-    <string name="ws_deleteFriend">http://192.168.183.86:22175/RedSocial-war/api/redsocial/deletefriend</string>
+    <string name="ws_login">http://192.168.1.110:22175/RedSocial-war/api/redsocial/login</string>
+    <string name="ws_refeshUser">http://192.168.1.110:22175/RedSocial-war/api/redsocial/refreshuser</string>
+    <string name="ws_addFriend">http://192.168.1.110:22175/RedSocial-war/api/redsocial/addfriend</string>
+    <string name="ws_addFriendByEmail">http://192.168.1.110:22175/RedSocial-war/api/redsocial/addfriendemail</string>
+    <string name="ws_deleteFriend">http://192.168.1.110:22175/RedSocial-war/api/redsocial/deletefriend</string>
 
-    <string name="ws_suggestion">http://192.168.183.86:22175/RedSocial-war/api/redsocial/getsuggested</string>
-    <string name="ws_safe_post">http://192.168.183.86:22175/RedSocial-war/api/post/newpost</string>
-    <string name="ws_register">http://192.168.183.86:22175/RedSocial-war/api/redsocial/register</string>
-    <string name="ws_create_group">http://192.168.183.86:22175/RedSocial-war/api/groups/creategroup</string>
+    <string name="ws_suggestion">http://192.168.1.110:22175/RedSocial-war/api/redsocial/getsuggested</string>
+    <string name="ws_safe_post">http://192.168.1.110:22175/RedSocial-war/api/post/newpost</string>
+    <string name="ws_register">http://192.168.1.110:22175/RedSocial-war/api/redsocial/register</string>
+    <string name="ws_create_group">http://192.168.1.110:22175/RedSocial-war/api/groups/creategroup</string>
     <string name="error_conexion">Error al conectar</string>
 
     <!-- KEYS para acceder valores de los bundle -->
