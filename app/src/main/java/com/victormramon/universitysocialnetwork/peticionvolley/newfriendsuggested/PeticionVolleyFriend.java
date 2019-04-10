@@ -23,14 +23,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PeticionVolleyFriendSuggested {
+public class PeticionVolleyFriend {
 
     private Activity context;
     private String url;
     private JSONObject infoPackage;
     private SimpleDateFormat sdt;
 
-    public PeticionVolleyFriendSuggested(Activity context, Usuario user, Usuario friendToAdd) {
+    public PeticionVolleyFriend(Activity context, Usuario user, Usuario friendToAdd) {
         this.context = context;
         if (friendToAdd.getId() != null) {
             this.url = context.getString(R.string.ws_addFriend);
@@ -55,6 +55,7 @@ public class PeticionVolleyFriendSuggested {
                                 AddRelationships activity = (AddRelationships) context;
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
+                                activity.backToMenu();
                                 //activity.onSavePostServerResult();
                                 //activity.cargarJson(response.toString());
 

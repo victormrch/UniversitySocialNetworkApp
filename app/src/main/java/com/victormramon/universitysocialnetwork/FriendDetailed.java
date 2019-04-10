@@ -1,17 +1,25 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
+import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
+import com.victormramon.universitysocialnetwork.peticionvolley.deletefriend.PeticionVolleyUnfollowFriend;
 import com.victormramon.universitysocialnetwork.recyclerview.recyclerviewpost.PostRecyclerAdapter;
 
 public class FriendDetailed extends AppCompatActivity {
+
+    private Usuario userLogged;
+    private Usuario friendSelected;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,21 +29,21 @@ public class FriendDetailed extends AppCompatActivity {
     }
 
     private void prepareLayout() {
-        Usuario friend = getFriendSelected();
+        getExtrasFromBundle();
         TextView tvNombre = findViewById(R.id.tvName);
-        tvNombre.setText(friend.getNombre());
+        tvNombre.setText(friendSelected.getNombre());
         TextView tvApellido = findViewById(R.id.tvSurname);
-        tvApellido.setText(friend.getApellidos());
+        tvApellido.setText(friendSelected.getApellidos());
         TextView tvEmail = findViewById(R.id.tvEmail);
-        tvEmail.setText(friend.getEmail());
+        tvEmail.setText(friendSelected.getEmail());
 
         findViewById(R.id.tvTitleLastComment).setVisibility(View.GONE);
 
-        chargeRV(friend);
+        chargeRV(friendSelected);
+        unfollowFriend();
     }
 
     private void chargeRV(Usuario friend) {
-
 
         PostRecyclerAdapter recAdapter =
                 new PostRecyclerAdapter(R.layout.item_post, friend.getPostList());
@@ -49,9 +57,29 @@ public class FriendDetailed extends AppCompatActivity {
     }
 
 
-    private Usuario getFriendSelected() {
-        return (Usuario) getIntent().getExtras()
+    private void getExtrasFromBundle() {
+        friendSelected = (Usuario) getIntent().getExtras()
                 .getSerializable(getString(R.string.key_friendSelected));
+        userLogged = (Usuario) getIntent().getExtras()
+                .getSerializable(getString(R.string.key_userLogged));
+    }
 
+    private void unfollowFriend() {
+        Button btnUnfollow = findViewById(R.id.btnNewPubliMain);
+        btnUnfollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PeticionVolleyUnfollowFriend volley =
+                        new PeticionVolleyUnfollowFriend(FriendDetailed.this, userLogged, friendSelected);
+                volley.doDeleteFriendRequest();
+
+            }
+        });
+    }
+
+    public void backToMenu() {
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK);
+        finish();
     }
 }

@@ -1,7 +1,9 @@
 package com.victormramon.universitysocialnetwork;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -64,10 +66,26 @@ public class Friends extends AppCompatActivity implements Callback {
         Bundle bundle = new Bundle();
         Usuario friend = (Usuario) item;
         bundle.putSerializable(getString(R.string.key_friendSelected), friend);
+        bundle.putSerializable(getString(R.string.key_userLogged), this.user);
         Intent intent = new Intent(this, FriendDetailed.class);
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            backToMenu();
+        }
+    }
+
+    public void backToMenu() {
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK);
+        finish();
     }
 
 }
