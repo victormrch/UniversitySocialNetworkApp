@@ -11,11 +11,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.victormramon.universitysocialnetwork.AddRelationships;
-import com.victormramon.universitysocialnetwork.MainActivity;
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.EncapsularInfoPost;
-import com.victormramon.universitysocialnetwork.modelos.Grupos;
-import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import org.json.JSONObject;
@@ -25,20 +22,21 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PeticionVolleyCreateGroups {
+public class PeticionVolleyFollowGroup {
 
     private Activity context;
     private String url;
     private JSONObject grup;
     private SimpleDateFormat sdt;
 
-    public PeticionVolleyCreateGroups(Activity context, EncapsularInfoPost groups,Usuario usuario) {
+    public PeticionVolleyFollowGroup(Activity context, EncapsularInfoPost groups, Usuario usuario) {
         this.context = context;
         this.url = context.getString(R.string.ws_create_group);
         grup = this.crearJsonObjectGrupo(groups,usuario);
 
     }
-    public void doPostRequestToSave() {
+
+    public void doPostRequestToSaveFollow() {
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -75,7 +73,7 @@ public class PeticionVolleyCreateGroups {
 
     }
 
-    private JSONObject crearJsonObjectGrupo(EncapsularInfoPost grupos,Usuario usuario) {
+    private JSONObject crearJsonObjectGrupo(EncapsularInfoPost grupos, Usuario usuario) {
         Map<String, Object> paramsGroup = new HashMap<String, Object>();
         paramsGroup.put("nombre", grupos.getGrupo().getNombre());
 
@@ -93,7 +91,4 @@ public class PeticionVolleyCreateGroups {
         return sdt.format(date);
     }
 
-
 }
-
-

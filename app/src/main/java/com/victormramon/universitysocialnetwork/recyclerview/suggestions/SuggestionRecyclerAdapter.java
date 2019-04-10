@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import java.util.List;
@@ -29,6 +30,8 @@ public class SuggestionRecyclerAdapter extends RecyclerView.Adapter<ViewElemento
     @Override
     public void onBindViewHolder(ViewElemento viewElemento, int i) {
         viewElemento.setUpHolder(elementos.get(i));
+
+
     }
 
     @Override

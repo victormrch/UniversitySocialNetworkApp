@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
 
             Intent intent = new Intent(this, AddRelationships.class);
             intent.putExtras(bundle);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
 
         }
 

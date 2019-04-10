@@ -26,7 +26,7 @@ import java.io.Serializable;
 public class AddGroupFragment extends Fragment implements Serializable {
 
     private EditText nombreGrupo;
-    private Button btn;
+    private Button btn;;
     private Sugerencias suggestion;
     private Activity actividad;
     private Usuario user;
@@ -73,6 +73,8 @@ public class AddGroupFragment extends Fragment implements Serializable {
             }
         });
     }
+
+
 
     private void getBundleFromArgument() {
         this.suggestion = (Sugerencias) this.getArguments()
