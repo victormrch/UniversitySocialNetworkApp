@@ -1,5 +1,6 @@
 package com.victormramon.universitysocialnetwork.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,22 +10,35 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.modelos.EncapsularInfoPost;
+import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
+import com.victormramon.universitysocialnetwork.modelos.Usuario;
+import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolleyCreateGroups;
 import com.victormramon.universitysocialnetwork.recyclerview.suggestions.SuggestionRecyclerAdapter;
 
-public class AddGroupFragment extends Fragment {
+import java.io.Serializable;
 
+public class AddGroupFragment extends Fragment implements Serializable {
+
+    private EditText nombreGrupo;
+    private Button btn;
     private Sugerencias suggestion;
+    private Activity actividad;
+    private Usuario user;
     //private Activity activ;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.groups_frag, container, false);
-        prepare(rootView);
-        return rootView;
+        View view = inflater.inflate(R.layout.groups_frag, container, false);
+        prepare(view);
+        return view;
+
     }
 
     private void prepare(View v) {
@@ -37,6 +51,27 @@ public class AddGroupFragment extends Fragment {
         recView.setAdapter(rvAdapter);
         //PeticionVolleySuggestion volleySuggestion = new PeticionVolleySuggestion(getActivity(), user);
         //volleySuggestion.getUsuarioVolley();
+
+        btn = v.findViewById(R.id.crear_grupo);
+        nombreGrupo = v.findViewById(R.id.etSearchFriends);
+        actividad = getActivity();
+        user = (Usuario) getArguments().getSerializable(getString(R.string.key_userLogged));
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Grupos g = new Grupos();
+                EncapsularInfoPost grupoCap = new EncapsularInfoPost();
+                g.setNombre(nombreGrupo.getText().toString());
+                grupoCap.setGrupo(g);
+
+                PeticionVolleyCreateGroups post = new PeticionVolleyCreateGroups(actividad, grupoCap, user);
+                post.doPostRequestToSave();
+
+
+            }
+        });
     }
 
     private void getBundleFromArgument() {
@@ -44,4 +79,5 @@ public class AddGroupFragment extends Fragment {
                 .getSerializable(getString(R.string.key_suggestion));
 
     }
+
 }

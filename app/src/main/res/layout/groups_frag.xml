@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Crear nuevo Grupo" />
+            android:hint="Crear nuevo Grupo" />
 
         <Button
             android:id="@+id/btnUpload"
@@ -28,9 +28,10 @@
             android:textColor="@color/colorFondoIcono"
             android:padding="5dp"
             android:layout_margin="5dp"
-            android:gravity="center"
-            />
+            android:gravity="center" />
+
         <Button
+            android:id="@+id/crear_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/btnUpload"
@@ -39,8 +40,7 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/colorFondoIcono"
             android:padding="5dp"
-            android:layout_margin="5dp"
-            />
+            android:layout_margin="5dp" />
 
     </RelativeLayout>
 
@@ -51,17 +51,12 @@
         android:text="@string/groups_suggested"
         android:layout_marginTop="30dp"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvSuggested"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.v7.widget.RecyclerView>
-
-
-
-
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

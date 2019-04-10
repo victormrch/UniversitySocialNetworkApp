@@ -12,22 +12,20 @@
         android:text="SILVANA"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/tamano_txt_principal_suggested"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_marginBottom="10dp" />
 
     <ImageView
         android:id="@+id/ivSuggested"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/mujer"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btnFollow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SEGUIR"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        android:textColor="@color/colorPrimaryDark" />
 </LinearLayout>

@@ -2,15 +2,16 @@ package com.victormramon.universitysocialnetwork;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.victormramon.universitysocialnetwork.callback.Callback;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
-import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.recyclerview.friends.ShowListRecyclerAdapter;
 
 public class Friends extends AppCompatActivity implements Callback {
@@ -22,6 +23,7 @@ public class Friends extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friends_activity_main);
+
 
         start();
     }

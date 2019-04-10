@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.victormramon.universitysocialnetwork.AddPublicationActivity;
-import com.victormramon.universitysocialnetwork.callback.Callback;
-import com.victormramon.universitysocialnetwork.callback.CallbackPost;
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.callback.Callback;
 import com.victormramon.universitysocialnetwork.modelos.Post;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -26,13 +26,29 @@ public class AddPostFragment extends Fragment {
     private AddPublicationActivity activity;
     private Callback callback;
 
+    private Spinner mSpinnerDynamic;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.new_publication_frag, container, false);
+
+//        mSpinnerDynamic = (Spinner) rootView.findViewById(R.id.spinner);
+//
+//        addItemsOnSpinnerDynamic();
+//
+//        mSpinnerDynamic.setOnItemSelectedListener(myItemSelectedListener);
+
         prepare(rootView);
         return rootView;
+
+
+
+
+    }
+
+    private void addItemsOnSpinnerDynamic() {
+
     }
 
     @Override
@@ -48,19 +64,18 @@ public class AddPostFragment extends Fragment {
         btnNewPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            EditText publication = (EditText) view.findViewById(R.id.etPublication);
+                EditText publication = (EditText) view.findViewById(R.id.etPublication);
 
-            Post post = new Post();
-            post.setContenido(publication.getText().toString());
+                Post post = new Post();
+                post.setContenido(publication.getText().toString());
 
-            callback.onItemClick(post);
+                callback.onItemClick(post);
 
 
             }
         });
 
     }
-
 
 
 }

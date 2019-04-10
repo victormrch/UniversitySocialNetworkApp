@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *
  * @author Jesus
  */
 
@@ -24,7 +23,7 @@ public class Grupos implements Serializable {
     private List<Usuario> usuarioList;
 
     private List<ComentarioGrupo> comentarioGrupoList;
-    
+
 
     private Integer groupSize;
 
@@ -73,11 +72,11 @@ public class Grupos implements Serializable {
     public void setComentarioGrupoList(List<ComentarioGrupo> comentarioGrupoList) {
         this.comentarioGrupoList = comentarioGrupoList;
     }
-    
+
     public int getGroupSize() {
         return groupSize;
     }
-    
+
     public void setGroupSize() {
         this.groupSize = this.getUsuarioList().size();
 
@@ -107,5 +106,5 @@ public class Grupos implements Serializable {
     public String toString() {
         return "redSocial.modelos.Grupos[ idGrupo=" + idGrupo + " ]";
     }
-    
+
 }

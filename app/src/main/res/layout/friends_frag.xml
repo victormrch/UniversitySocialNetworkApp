@@ -14,11 +14,11 @@
 
         <EditText
             android:id="@+id/etSearchFriends"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Buscar y Seguir a nuevo amigo" />
+            android:hint="Buscar y Seguir a nuevo amigo" />
 
         <Button
             android:layout_width="wrap_content"
@@ -26,8 +26,7 @@
             android:layout_toRightOf="@id/etSearchFriends"
             android:text="Buscar"
             android:background="@color/colorPrimary"
-            android:textColor="@color/colorFondoIcono"
-            />
+            android:textColor="@color/colorFondoIcono" />
 
     </RelativeLayout>
 
@@ -38,17 +37,12 @@
         android:text="Amigos Sugeridos"
         android:layout_marginTop="30dp"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvSuggested"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.v7.widget.RecyclerView>
-
-
-
-
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

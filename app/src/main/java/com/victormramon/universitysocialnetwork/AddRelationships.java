@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.victormramon.universitysocialnetwork.callback.CallbackFriend;
 import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
@@ -16,7 +15,7 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
-public class AddRelationships extends AppCompatActivity  implements CallbackFriend {
+public class AddRelationships extends AppCompatActivity {
 
     private Gson gson;
     private Usuario user;
@@ -63,6 +62,7 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
     private Bundle generateBundle(Sugerencias suggestion) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(getString(R.string.key_suggestion), suggestion);
+        bundle.putSerializable(getString(R.string.key_userLogged), user);
         return bundle;
     }
 
@@ -79,6 +79,14 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
         volleySuggestion.getUsuarioVolley();
     }
 
+    /**
+     * transformar el json usuario a un Usuario
+     * @param response
+     */
+    public Usuario getUserFromResponse(String response) {
+        gson = new GsonBuilder().create();
+        return gson.fromJson(response, Usuario.class);
+    }
 
     /**
      * transformar el json sugerencias a el objeto Sugerencias
@@ -90,10 +98,4 @@ public class AddRelationships extends AppCompatActivity  implements CallbackFrie
         this.suggestion = sug;
     }
 
-
-    @Override
-    public void onFriendClick(Usuario friendSuggestedClicked) {
-        Usuario newFriend = new Usuario();
-        newFriend.setId(friendSuggestedClicked.getId());
-    }
 }

@@ -4,12 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.modelos.ComentarioGrupo;
-import com.victormramon.universitysocialnetwork.modelos.Grupos;
-import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
 import java.text.SimpleDateFormat;
 
@@ -29,13 +26,12 @@ public class ViewElemento extends RecyclerView.ViewHolder {
     }
 
 
-
     public void setUpHolder(ComentarioGrupo item) {
         tvContent.setText(item.getComentario());
         SimpleDateFormat sdt = new SimpleDateFormat("dd-MM-YYYY");
         tvDate.setText(sdt.format(item.getFecha()));
 
-       // tvPublisher.setText(item.getIdAutor().getEmail());
+        // tvPublisher.setText(item.getIdAutor().getEmail());
 
     }
 }

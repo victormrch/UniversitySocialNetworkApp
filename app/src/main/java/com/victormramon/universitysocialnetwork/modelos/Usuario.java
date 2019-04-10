@@ -14,7 +14,6 @@ import java.util.List;
 
 
 /**
- *
  * @author Jesus
  */
 
@@ -124,7 +123,6 @@ public class Usuario implements Serializable {
     }
 
 
-
     public List<Post> getPostList() {
         return postList;
     }
@@ -166,24 +164,24 @@ public class Usuario implements Serializable {
     public String toString() {
         return "redSocial.modelos.Usuario[ id=" + id + " ]";
     }
-    
+
     public static String toJson(Usuario user) {
         Gson gson = new GsonBuilder().create();
 
-        for(Usuario u: user.getAmigosList()) {
+        for (Usuario u : user.getAmigosList()) {
             u.setGruposList(null);
             u.setUsuarioList(null);
             u.setComentarioGrupoList(null);
             u.setPostList(null);
         }
-        for (Post p: user.getPostList()) {
+        for (Post p : user.getPostList()) {
             p.setIdPublicador(null);
         }
-        for (ComentarioGrupo c: user.getComentarioGrupoList()) {
+        for (ComentarioGrupo c : user.getComentarioGrupoList()) {
             c.setIdAutor(null);
             c.setIdGrupo(null);
         }
-        for (Grupos g: user.getGruposList()) {
+        for (Grupos g : user.getGruposList()) {
             g.setGroupSize();
             g.setUsuarioList(null);
 //            for (Usuario u: g.getUsuarioList())  {
@@ -194,7 +192,7 @@ public class Usuario implements Serializable {
 //                    u.setUsuarioList(null);
 //                }
 //            }
-            for (ComentarioGrupo c: g.getComentarioGrupoList()) {
+            for (ComentarioGrupo c : g.getComentarioGrupoList()) {
                 c.setIdAutor(null);
                 c.setIdGrupo(null);
             }
@@ -202,5 +200,5 @@ public class Usuario implements Serializable {
         String userJson = gson.toJson(user);
         return userJson;
     }
-    
+
 }
