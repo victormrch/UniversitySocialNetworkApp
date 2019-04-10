@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.victormramon.universitysocialnetwork.R;
 import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
+import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Usuario;
 
@@ -30,7 +31,7 @@ public class ViewElemento extends RecyclerView.ViewHolder {
                     AddFriendFragment.onFriendClickListener(userClicked);
 
                 } else if (groupClicked != null) {
-
+                    AddGroupFragment.onGroupSuggestedClick(groupClicked);
                 }
             }
         });

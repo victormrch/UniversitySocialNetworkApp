@@ -1,6 +1,7 @@
 package com.victormramon.universitysocialnetwork.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.victormramon.universitysocialnetwork.R;
+import com.victormramon.universitysocialnetwork.callback.CallbackRelationship;
 import com.victormramon.universitysocialnetwork.modelos.EncapsularInfoPost;
 import com.victormramon.universitysocialnetwork.modelos.Grupos;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
@@ -30,6 +32,7 @@ public class AddGroupFragment extends Fragment implements Serializable {
     private Sugerencias suggestion;
     private Activity actividad;
     private Usuario user;
+    private static CallbackRelationship callback;
     //private Activity activ;
 
 
@@ -62,22 +65,35 @@ public class AddGroupFragment extends Fragment implements Serializable {
             public void onClick(View v) {
 
                 Grupos g = new Grupos();
-                EncapsularInfoPost grupoCap = new EncapsularInfoPost();
-                g.setNombre(nombreGrupo.getText().toString());
-                grupoCap.setGrupo(g);
 
-                PeticionVolleyCreateGroups post = new PeticionVolleyCreateGroups(actividad, grupoCap, user);
-                post.doPostRequestToSave();
+                g.setNombre(nombreGrupo.getText().toString());
+
+                callback.onGroupClick(g);
+
+
+//                PeticionVolleyCreateGroups post = new PeticionVolleyCreateGroups(actividad, g, user);
+//                post.doPostRequestToSave();
 
 
             }
         });
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        callback = (CallbackRelationship) context;
+    }
+
     private void getBundleFromArgument() {
         this.suggestion = (Sugerencias) this.getArguments()
                 .getSerializable(getString(R.string.key_suggestion));
 
+    }
+
+    public static void onGroupSuggestedClick(Grupos groupSelected) {
+        callback.onGroupClick(groupSelected);
     }
 
 }

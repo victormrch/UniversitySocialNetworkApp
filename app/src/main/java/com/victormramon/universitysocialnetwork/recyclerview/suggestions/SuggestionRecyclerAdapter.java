@@ -10,7 +10,7 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import java.util.List;
 
 public class SuggestionRecyclerAdapter extends RecyclerView.Adapter<ViewElemento> {
-    private List<Usuario> elementos;
+    private List<Object> elementos;
     private int resourceId;
 
     public SuggestionRecyclerAdapter(int resourceId, List elementos) {

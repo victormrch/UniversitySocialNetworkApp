@@ -33,9 +33,14 @@ public class PeticionVolleyCreateGroups {
     private JSONObject grup;
     private SimpleDateFormat sdt;
 
-    public PeticionVolleyCreateGroups(Activity context, EncapsularInfoPost groups,Usuario usuario) {
+    public PeticionVolleyCreateGroups(Activity context, Grupos groups,Usuario usuario) {
         this.context = context;
-        this.url = context.getString(R.string.ws_create_group);
+        if (groups.getIdGrupo() != null) {
+            this.url = context.getString(R.string.ws_follow_group);
+        } else if (groups.getNombre() != null) {
+            this.url = context.getString(R.string.ws_create_group);
+        }
+
         grup = this.crearJsonObjectGrupo(groups,usuario);
 
     }
@@ -56,6 +61,7 @@ public class PeticionVolleyCreateGroups {
                                 //activity.cargarJson(response.toString());
                                 Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
                                         .show();
+                                activity.backToMenu();
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -78,9 +84,13 @@ public class PeticionVolleyCreateGroups {
 
     }
 
-    private JSONObject crearJsonObjectGrupo(EncapsularInfoPost grupos,Usuario usuario) {
+    private JSONObject crearJsonObjectGrupo(Grupos grupos,Usuario usuario) {
         Map<String, Object> paramsGroup = new HashMap<String, Object>();
-        paramsGroup.put("nombre", grupos.getGrupo().getNombre());
+        if (grupos.getIdGrupo() != null) {
+            paramsGroup.put("idGrupo", grupos.getIdGrupo());
+        } else {
+            paramsGroup.put("nombre", grupos.getNombre());
+        }
 
         Map<String,Object> paramsEncapsular = new HashMap<String, Object>();
         paramsEncapsular.put("idUsuario", usuario.getId());
