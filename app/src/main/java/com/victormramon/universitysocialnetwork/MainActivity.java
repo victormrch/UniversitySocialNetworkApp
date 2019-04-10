@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity
             //borrar las preferences
             SharedPreferences prefs = getSharedPreferences(getString(R.string.key_sharedPref), Context.MODE_PRIVATE);
             prefs.edit().clear();
+            
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
