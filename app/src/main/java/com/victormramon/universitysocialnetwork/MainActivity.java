@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         usuario = (Usuario) args.getSerializable(getString(R.string.key_userLogged));
         chargeTextView(usuario);
-        if (usuario.getComentarioGrupoList() != null){
+        if (usuario.getComentarioGrupoList() != null) {
             chargeComment(usuario);
         }
 
@@ -93,9 +92,51 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_profile) {
-            return true;
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+
+        } else if (id == R.id.action_friends) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Friends.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+        } else if (id == R.id.action_groups) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), Groups.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }else if (id == R.id.action_New_post) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), AddPublicationActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+        }else if (id == R.id.action_new_group_friend) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(this, AddRelationships.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+
+        }else if (id == R.id.action_exit) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), SplashLogout.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -107,7 +148,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            // Handle the camera action
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(getString(R.string.key_userLogged), usuario);
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1);
+
         } else if (id == R.id.nav_friends) {
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
@@ -140,7 +187,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtras(bundle);
             startActivityForResult(intent, 1);
 
-        } else if (id == R.id.nav_logout){
+        } else if (id == R.id.nav_logout) {
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
@@ -149,7 +196,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -186,11 +232,10 @@ public class MainActivity extends AppCompatActivity
         tvSurname.setText(userLogged.getApellidos());
         tvEmail.setText(userLogged.getEmail());
 
-        if (userLogged.getPostList() != null){
+        if (userLogged.getPostList() != null) {
 
             chargePost(userLogged);
         }
-
 
 
     }
@@ -228,4 +273,6 @@ public class MainActivity extends AppCompatActivity
         recView.setAdapter(recAdapter);
 
     }
+
+
 }

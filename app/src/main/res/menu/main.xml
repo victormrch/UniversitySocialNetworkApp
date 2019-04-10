@@ -14,6 +14,18 @@
         android:id="@+id/action_groups"
         android:orderInCategory="130"
         android:title="@string/action_groups" />
+    <item
+        android:id="@+id/action_New_post"
+        android:orderInCategory="140"
+        android:title="@string/action_new_post" />
+    <item
+        android:id="@+id/action_new_group_friend"
+        android:orderInCategory="150"
+        android:title="@string/action_new_group_friend" />
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="160"
+        android:title="@string/action_exit" />
 
 
 </menu>
