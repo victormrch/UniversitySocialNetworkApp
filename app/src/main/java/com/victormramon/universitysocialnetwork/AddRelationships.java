@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.victormramon.universitysocialnetwork.callback.CallbackFriend;
 import com.victormramon.universitysocialnetwork.fragments.AddFriendFragment;
 import com.victormramon.universitysocialnetwork.fragments.AddGroupFragment;
 import com.victormramon.universitysocialnetwork.modelos.Sugerencias;
@@ -15,7 +16,7 @@ import com.victormramon.universitysocialnetwork.modelos.Usuario;
 import com.victormramon.universitysocialnetwork.peticionvolley.PeticionVolley;
 import com.victormramon.universitysocialnetwork.peticionvolley.suggestion.PeticionVolleySuggestion;
 
-public class AddRelationships extends AppCompatActivity {
+public class AddRelationships extends AppCompatActivity  implements CallbackFriend {
 
     private Gson gson;
     private Usuario user;
@@ -78,14 +79,6 @@ public class AddRelationships extends AppCompatActivity {
         volleySuggestion.getUsuarioVolley();
     }
 
-//    /**
-//     * transformar el json usuario a un Usuario
-//     * @param response
-//     */
-//    public void  getUserFromResponse(String response) {
-//        gson = new GsonBuilder().create();
-//        this.suggestion=gson.fromJson(response, Sugerencias.class);
-//    }
 
     /**
      * transformar el json sugerencias a el objeto Sugerencias
@@ -97,4 +90,10 @@ public class AddRelationships extends AppCompatActivity {
         this.suggestion = sug;
     }
 
+
+    @Override
+    public void onFriendClick(Usuario friendSuggestedClicked) {
+        Usuario newFriend = new Usuario();
+        newFriend.setId(friendSuggestedClicked.getId());
+    }
 }

@@ -10,6 +10,26 @@ public class EncapsularInfoPost {
 
     private Grupos grupo;
 
+    private Integer idAmigo;
+
+    private String emailAmigo;
+
+    public String getEmailAmigo() {
+        return emailAmigo;
+    }
+
+    public void setEmailAmigo(String emailAmigo) {
+        this.emailAmigo = emailAmigo;
+    }
+
+    public Integer getIdAmigo() {
+        return idAmigo;
+    }
+
+    public void setIdAmigo(Integer idAmigo) {
+        this.idAmigo = idAmigo;
+    }
+
     public Integer getIdUsuario() {
         return idUsuario;
     }
