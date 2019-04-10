@@ -5,15 +5,15 @@
     <item
         android:id="@+id/action_profile"
         android:orderInCategory="110"
-        android:title="" />
+        android:title="@string/action_profile" />
     <item
         android:id="@+id/action_friends"
         android:orderInCategory="120"
-        android:title="" />
+        android:title="@string/action_friends" />
     <item
         android:id="@+id/action_groups"
         android:orderInCategory="130"
-        android:title="" />
+        android:title="@string/action_groups" />
 
 
 </menu>
