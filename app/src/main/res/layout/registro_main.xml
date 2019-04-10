@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/university_social_network"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginBottom="10dp"
         android:textStyle="bold"/>
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tvEmail"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro" />
 
         <EditText
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etEmail"
             android:text="@string/tvApellidos"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro"
             />
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etApellidos"
             android:text="@string/tvNombre"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro" />
 
         <EditText
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etNombre"
             android:text="@string/tvTelefono"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro" />
 
         <EditText
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etTelefono"
             android:text="@string/tvPassword"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro" />
 
         <EditText
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etContraseña"
             android:text="@string/tvPassword2"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/registro" />
 
         <EditText
