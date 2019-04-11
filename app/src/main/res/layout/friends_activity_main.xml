@@ -42,4 +42,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/new_usuario"
         tools:ignore="MissingConstraints" />
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
