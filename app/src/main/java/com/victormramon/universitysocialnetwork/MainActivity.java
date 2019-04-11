@@ -1,7 +1,9 @@
 package com.victormramon.universitysocialnetwork;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -114,7 +116,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), Groups.class);
             intent.putExtras(bundle);
             startActivity(intent);
-        }else if (id == R.id.action_New_post) {
+        }else if (id == R.id.action_new_post) {
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
@@ -169,7 +171,7 @@ public class MainActivity extends AppCompatActivity
 
             Intent intent = new Intent(getApplicationContext(), Groups.class);
             intent.putExtras(bundle);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
 
         } else if (id == R.id.nav_post) {
             Bundle bundle = new Bundle();
@@ -188,6 +190,11 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent, 1);
 
         } else if (id == R.id.nav_logout) {
+            //cuando te sales te borra los datos de las preferences
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.key_sharedPref), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.commit();
             Bundle bundle = new Bundle();
             bundle.putSerializable(getString(R.string.key_userLogged), usuario);
 
@@ -212,6 +219,13 @@ public class MainActivity extends AppCompatActivity
 
             }
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        chargePost(this.usuario);
+        chargeComment(this.usuario);
     }
 
     /**

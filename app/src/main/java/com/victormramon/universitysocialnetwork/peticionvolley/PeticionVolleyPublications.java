@@ -47,16 +47,15 @@ public class PeticionVolleyPublications {
 
                                 //utilizamos esto para el método que construye el intent result
                                 AddPublicationActivity activity = (AddPublicationActivity) context;
-                                Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "¡Tu rugido se ha publicado!", Toast.LENGTH_LONG)
                                         .show();
                                 activity.onSavePostServerResult();
-                                //activity.cargarJson(response.toString());
 
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                        Toast.makeText(context, "Tu post no se ha podido comentar...",
                                 Toast.LENGTH_LONG);
                     }
 

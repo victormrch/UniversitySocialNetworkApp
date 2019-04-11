@@ -35,7 +35,6 @@ public class AddPublicationActivity extends AppCompatActivity implements Callbac
             Post postToSave = (Post) item;
             sendToServer(postToSave);
 
-            onSavePostServerResult();
         }
 
     }

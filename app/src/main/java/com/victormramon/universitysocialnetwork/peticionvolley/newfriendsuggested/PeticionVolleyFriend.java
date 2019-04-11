@@ -53,19 +53,17 @@ public class PeticionVolleyFriend {
 
                                 //utilizamos esto para el método que construye el intent result
                                 AddRelationships activity = (AddRelationships) context;
-                                Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "¡Nuevo amigo de aventuras!", Toast.LENGTH_LONG)
                                         .show();
                                 activity.backToMenu();
-                                //activity.onSavePostServerResult();
-                                //activity.cargarJson(response.toString());
 
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                Toast.LENGTH_LONG);
+                        Toast.makeText(context, "Mufasa estaba bien solo...",
+                                Toast.LENGTH_LONG).show();
                     }
 
 

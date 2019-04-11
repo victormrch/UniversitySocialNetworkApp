@@ -48,14 +48,15 @@ public class PeticionVolleySuggestion {
                                 // activity = (Groups) context;
                                 //activity.cargarJson(response.toString());
                                 AddRelationships activity = (AddRelationships) context;
-                                activity.getSuggestionFromResponse(response.toString());
-                                Toast.makeText(context, "Petición sugerencias realizada", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "¡Encuentra a tus camaradas!", Toast.LENGTH_LONG)
                                         .show();
+                                activity.getSuggestionFromResponse(response.toString());
+
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                        Toast.makeText(context, "¿No hay camaradas cerca?",
                                 Toast.LENGTH_LONG);
                     }
 

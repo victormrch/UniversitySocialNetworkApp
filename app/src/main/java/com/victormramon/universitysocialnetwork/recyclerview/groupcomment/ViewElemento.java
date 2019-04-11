@@ -31,7 +31,7 @@ public class ViewElemento extends RecyclerView.ViewHolder {
         SimpleDateFormat sdt = new SimpleDateFormat("dd-MM-YYYY");
         tvDate.setText(sdt.format(item.getFecha()));
 
-        tvPublisher.setText(item.getIdAutor().getEmail());
+        //tvPublisher.setText(item.getIdAutor().getEmail());
 
     }
 }

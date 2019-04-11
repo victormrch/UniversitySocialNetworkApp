@@ -47,13 +47,16 @@ public class RegistroPeticionVolley {
                                 //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                                 Usuario user = fromJsonToUsuario(response.toString());
                                 RegistroActivity acitivity = (RegistroActivity) context;
+                                Toast.makeText(context, "Welcome to the jungle!",
+                                        Toast.LENGTH_LONG).show();
                                 acitivity.volverActivity(user);
+
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(context, "Ha ocurrido un error en la petición",
-                                Toast.LENGTH_LONG);
+                                Toast.LENGTH_LONG).show();
                     }
 
 

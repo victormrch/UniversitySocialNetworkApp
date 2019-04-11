@@ -100,7 +100,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvUltimosPost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         android:layout_marginLeft="@dimen/recycler_margin_Left"
         android:layout_marginRight="@dimen/recycler_margin_Right"></android.support.v7.widget.RecyclerView>
 
@@ -116,7 +116,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvLastComment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         android:layout_marginLeft="@dimen/recycler_margin_Left"
         android:layout_marginRight="@dimen/recycler_margin_Right"></android.support.v7.widget.RecyclerView>
 

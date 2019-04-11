@@ -126,7 +126,6 @@ public class AddRelationships extends AppCompatActivity  implements CallbackRela
                 new PeticionVolleyFriend(this, user, newFriend);
         volley.doPostRequestToSave();
 
-        Toast.makeText(this, "petición realizada, espera si entra en error Listener", Toast.LENGTH_LONG).show();
     }
 
     @Override

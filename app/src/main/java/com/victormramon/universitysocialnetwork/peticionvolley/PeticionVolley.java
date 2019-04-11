@@ -63,12 +63,14 @@ public class PeticionVolley {
                                     Usuario user = fromJsonToUsuario(response.toString());
                                     LoginActivity activity = (LoginActivity) context;
                                     activity.cargarSiguienteActivity(user);
+                                    Toast.makeText(context, "Hakuna Matata!",
+                                            Toast.LENGTH_LONG).show();
                                 }
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                        Toast.makeText(context, "Musafa está vigilando, en este momento no es seguro entrar...",
                                 Toast.LENGTH_LONG);
                     }
                 }

@@ -15,7 +15,7 @@
         android:orderInCategory="130"
         android:title="@string/action_groups" />
     <item
-        android:id="@+id/action_New_post"
+        android:id="@+id/action_new_post"
         android:orderInCategory="140"
         android:title="@string/action_new_post" />
     <item

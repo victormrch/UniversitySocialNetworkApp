@@ -58,8 +58,7 @@ public class PeticionVolleyCreateGroups {
                             public void onResponse(JSONObject response) {
                                 //4-04 -> pinta al main activity con el json del usuario que viene del servidor
                                 AddRelationships activity = (AddRelationships) context;
-                                //activity.cargarJson(response.toString());
-                                Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "¡Te has unido a la manada!", Toast.LENGTH_LONG)
                                         .show();
                                 activity.backToMenu();
                             }
@@ -67,7 +66,7 @@ public class PeticionVolleyCreateGroups {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                        Toast.makeText(context, "La manada se ha escapado...",
                                 Toast.LENGTH_LONG);
                     }
 

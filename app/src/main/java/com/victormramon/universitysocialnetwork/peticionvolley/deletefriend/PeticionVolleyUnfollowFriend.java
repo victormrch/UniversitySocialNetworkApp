@@ -48,18 +48,17 @@ public class PeticionVolleyUnfollowFriend {
 
                                 //utilizamos esto para el método que construye el intent result
                                 FriendDetailed activity = (FriendDetailed) context;
-                                Toast.makeText(context, "La peticion ha ido bien", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "Prefiero ser un lobo solitario", Toast.LENGTH_LONG)
                                         .show();
                                 activity.backToMenu();
-                                //activity.onSavePostServerResult();
-                                //activity.cargarJson(response.toString());
+
 
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
-                        Toast.makeText(context, "Ha ocurrido un error en la petición",
+                        Toast.makeText(context, "Para abandonar compañeros hay que hacerlo bien...",
                                 Toast.LENGTH_LONG);
                     }
 
